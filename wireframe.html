@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コンサルタントLP ワイヤーフレーム</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Hiragino Sans', 'Meiryo', sans-serif; background: #f0f0f0; color: #333; }
+
+  /* ラベル共通 */
+  .section-label {
+    display: inline-block;
+    background: #555;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .note {
+    font-size: 11px;
+    color: #888;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ブロック共通 */
+  .placeholder {
+    background: #d9d9d9;
+    border: 1px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #888;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: #fff;
+    border-bottom: 2px solid #333;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header .logo { font-size: 16px; font-weight: bold; }
+  header nav { display: flex; gap: 24px; font-size: 13px; }
+  header nav a { text-decoration: none; color: #333; }
+  header .header-cta {
+    background: #333;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section.full-width {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* ===== 01 HERO ===== */
+  .hero {
+    background: #e8e8e8;
+    border-bottom: 2px solid #bbb;
+    padding: 0;
+    max-width: 100%;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-text .tag {
+    display: inline-block;
+    border: 1px solid #333;
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+  .hero-text h1 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .hero-text p { font-size: 14px; color: #555; margin-bottom: 24px; }
+  .hero-cta {
+    background: #333;
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 15px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .hero-image { height: 280px; }
+  .badge-row {
+    background: #333;
+    color: #fff;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .badge-item {
+    padding: 20px 48px;
+    text-align: center;
+    border-right: 1px solid #555;
+  }
+  .badge-item:last-child { border-right: none; }
+  .badge-item .num { font-size: 28px; font-weight: bold; }
+  .badge-item .label { font-size: 11px; margin-top: 4px; color: #ccc; }
+
+  /* ===== 02 PAIN ===== */
+  .pain-intro {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .pain-intro h2 { font-size: 22px; line-height: 1.5; margin-bottom: 8px; }
+  .checklist {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .checklist-item::before {
+    content: '□';
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pain-cta {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    padding: 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  /* ===== 03 MISSION ===== */
+  .mission-section {
+    background: #1a1a1a;
+    max-width: 100%;
+    padding: 70px 40px;
+    color: #fff;
+  }
+  .mission-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .mission-inner h2 {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #aaa;
+    margin-bottom: 16px;
+  }
+  .mission-inner p { font-size: 22px; line-height: 1.7; }
+  .mission-image { height: 260px; background: #444; border: 1px dashed #666; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #888; }
+
+  /* ===== 04 REASON ===== */
+  .reason-heading { text-align: center; margin-bottom: 40px; }
+  .reason-heading h2 { font-size: 22px; margin-bottom: 8px; }
+  .reason-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .reason-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .reason-card .num { font-size: 32px; font-weight: bold; color: #bbb; }
+  .reason-card h3 { font-size: 15px; font-weight: bold; margin: 12px 0 8px; }
+  .reason-card p { font-size: 13px; color: #666; line-height: 1.6; }
+
+  /* ===== 05 SERVICE ===== */
+  .service-heading { text-align: center; margin-bottom: 40px; }
+  .service-heading h2 { font-size: 22px; margin-bottom: 8px; }
+  .plan-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid #ddd;
+  }
+  .plan-col {
+    background: #fff;
+    border-right: 1px solid #ddd;
+    overflow: hidden;
+  }
+  .plan-col:last-child { border-right: none; }
+  .plan-col.recommended { background: #1a1a1a; color: #fff; }
+  .plan-header {
+    padding: 24px 20px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  .plan-col.recommended .plan-header { border-bottom-color: #444; }
+  .plan-badge { font-size: 10px; background: #555; color: #fff; padding: 2px 10px; display: inline-block; margin-bottom: 10px; }
+  .plan-col.recommended .plan-badge { background: #fff; color: #1a1a1a; }
+  .plan-name { font-size: 20px; font-weight: bold; margin-bottom: 4px; }
+  .plan-sub { font-size: 11px; color: #888; margin-bottom: 12px; }
+  .plan-col.recommended .plan-sub { color: #aaa; }
+  .plan-price { font-size: 28px; font-weight: bold; }
+  .plan-price span { font-size: 12px; font-weight: normal; }
+  .plan-body { padding: 20px; }
+  .plan-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+  }
+  .plan-col.recommended .plan-row { border-bottom-color: #333; }
+  .plan-row:last-child { border-bottom: none; }
+  .plan-row .icon { flex-shrink: 0; color: #aaa; font-size: 11px; margin-top: 2px; }
+  .plan-col.recommended .plan-row .icon { color: #888; }
+  .plan-target {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #888;
+    background: #f7f7f7;
+    padding: 10px 12px;
+    line-height: 1.6;
+  }
+  .plan-col.recommended .plan-target { background: #2a2a2a; color: #aaa; }
+  .value-add-section { margin-top: 40px; }
+  .value-add-title { font-size: 13px; font-weight: bold; text-align: center; margin-bottom: 16px; color: #555; }
+  .value-add-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .value-add-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 16px;
+    text-align: center;
+  }
+  .value-add-card .va-icon { font-size: 22px; margin-bottom: 8px; }
+  .value-add-card h4 { font-size: 13px; font-weight: bold; margin-bottom: 6px; }
+  .value-add-card p { font-size: 12px; color: #666; line-height: 1.5; }
+
+  /* ===== 06 MID CTA ===== */
+  .mid-cta {
+    background: #2a2a2a;
+    max-width: 100%;
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+  }
+  .mid-cta p { font-size: 15px; margin-bottom: 20px; }
+  .mid-cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 32px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+  }
+  .btn-fill {
+    background: #fff;
+    color: #333;
+    padding: 12px 32px;
+    font-size: 14px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* ===== 07 WORKS ===== */
+  .works-heading { text-align: center; margin-bottom: 40px; }
+  .works-heading h2 { font-size: 22px; margin-bottom: 8px; }
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .works-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    overflow: hidden;
+  }
+  .works-card .card-img { height: 100px; }
+  .works-card .card-body { padding: 16px; }
+  .works-card .industry { font-size: 10px; color: #888; margin-bottom: 4px; }
+  .works-card h3 { font-size: 13px; font-weight: bold; margin-bottom: 10px; line-height: 1.5; }
+  .before-after {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+  }
+  .before-box, .after-box {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+  }
+  .before-box { background: #f0f0f0; }
+  .after-box { background: #e8e8e8; font-weight: bold; }
+  .arrow-box { font-size: 16px; color: #aaa; }
+
+  /* ===== 08 FLOW ===== */
+  .flow-section { background: #f7f7f7; max-width: 100%; padding: 70px 40px; }
+  .flow-inner { max-width: 900px; margin: 0 auto; }
+  .flow-heading { text-align: center; margin-bottom: 40px; }
+  .flow-heading h2 { font-size: 22px; margin-bottom: 8px; }
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .flow-step {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '▶';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: #bbb;
+    font-size: 18px;
+  }
+  .flow-step .step-num { font-size: 11px; color: #888; margin-bottom: 8px; }
+  .flow-step h3 { font-size: 15px; font-weight: bold; margin-bottom: 10px; }
+  .flow-step p { font-size: 13px; color: #666; line-height: 1.6; }
+
+  /* ===== 09 FAQ ===== */
+  .faq-heading { text-align: center; margin-bottom: 40px; }
+  .faq-heading h2 { font-size: 22px; margin-bottom: 8px; }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid #ddd; }
+  .faq-q {
+    padding: 18px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+  }
+  .faq-q .q-label { color: #333; font-size: 16px; flex-shrink: 0; }
+  .faq-a {
+    padding: 14px 16px 18px 44px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+    background: #fafafa;
+  }
+
+  /* ===== 10 FINAL CTA ===== */
+  .final-cta {
+    background: #1a1a1a;
+    max-width: 100%;
+    padding: 80px 40px;
+    color: #fff;
+    text-align: center;
+  }
+  .final-cta h2 { font-size: 24px; margin-bottom: 12px; }
+  .final-cta p { font-size: 14px; color: #aaa; margin-bottom: 36px; line-height: 1.8; }
+  .form-mock {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .form-mock input, .form-mock select, .form-mock textarea {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #555;
+    background: #2a2a2a;
+    color: #fff;
+    width: 100%;
+  }
+  .form-mock textarea { height: 80px; resize: none; }
+  .form-mock button {
+    background: #fff;
+    color: #1a1a1a;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #111;
+    color: #888;
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 12px;
+  }
+  footer .footer-nav { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  footer .footer-nav a { color: #888; text-decoration: none; }
+
+  /* セクション番号ラベル */
+  .sec-num {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">株式会社TOJISM</div>
+  <nav>
+    <a href="#">サービス</a>
+    <a href="#">実績</a>
+    <a href="#">よくある質問</a>
+    <a href="#">プロフィール</a>
+  </nav>
+  <button class="header-cta">無料相談する</button>
+</header>
+
+
+<!-- 01 HERO -->
+<div class="hero full-width">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="tag">旅館・飲食業専門コンサルタント</span>
+      <h1>【キャッチコピー】<br>旅館・飲食業の<br>経営課題を、<br>現場から変える。</h1>
+      <p>【サブコピー】事業継承・飲食経営の当事者だからこそできる、伴走支援。</p>
+      <div class="hero-cta">無料相談を申し込む</div>
+      <p class="note">※初回相談無料・オンライン対応可</p>
+    </div>
+    <div class="placeholder hero-image">メインビジュアル<br>（顔写真 or 旅館・飲食の写真）</div>
+  </div>
+  <!-- 実績数値バッジ -->
+  <div class="badge-row">
+    <div class="badge-item">
+      <div class="num">○○<span style="font-size:14px">年</span></div>
+      <div class="label">コンサルタント歴</div>
+    </div>
+    <div class="badge-item">
+      <div class="num">○○<span style="font-size:14px">件</span></div>
+      <div class="label">総支援施設数</div>
+    </div>
+    <div class="badge-item">
+      <div class="num">2<span style="font-size:14px">施設</span></div>
+      <div class="label">事業継承実績</div>
+    </div>
+    <div class="badge-item">
+      <div class="num">○○<span style="font-size:14px">業態</span></div>
+      <div class="label">飲食店経営経験</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 02 課題提示 -->
+<section>
+  <span class="sec-num">02 — PAIN POINTS</span>
+  <div class="pain-intro">
+    <h2>集客・経営・人材…<br>旅館・飲食業の課題、<br>ひとりで抱えていませんか？</h2>
+    <p class="note">当てはまるものがあれば、お役に立てます。</p>
+  </div>
+  <div class="checklist">
+    <div class="checklist-item">Webサイトからの直接予約が増えない</div>
+    <div class="checklist-item">OTA依存から脱却したい</div>
+    <div class="checklist-item">インバウンド集客の方法がわからない</div>
+    <div class="checklist-item">スタッフの採用・定着に悩んでいる</div>
+    <div class="checklist-item">事業継承・後継者問題を抱えている</div>
+    <div class="checklist-item">外部コンサルに頼んだが効果が出ない</div>
+    <div class="checklist-item">経営数字の読み方・改善方法がわからない</div>
+    <div class="checklist-item">相談できる専門家が身近にいない</div>
+  </div>
+  <div class="pain-cta">どれかひとつでも当てはまれば、まずご相談ください。</div>
+</section>
+
+
+<!-- 03 MISSION -->
+<div class="mission-section full-width">
+  <div class="mission-inner">
+    <div>
+      <h2>MISSION</h2>
+      <p>【想い・ミッション】<br><br>なぜこの仕事をするのか、<br>業界への課題感と、<br>実現したい未来を語るテキスト。<br><br>2〜3段落程度。</p>
+    </div>
+    <img src="profile.jpg" alt="プロフィール写真" style="width:100%; height:260px; object-fit:cover; object-position:top;">
+  </div>
+</div>
+
+
+<!-- 04 選ばれる理由 -->
+<section>
+  <span class="sec-num">04 — REASON</span>
+  <div class="reason-heading">
+    <h2>選ばれる3つの理由</h2>
+    <p class="note">現場経験者だからこそできる支援</p>
+  </div>
+  <div class="reason-grid">
+    <div class="reason-card">
+      <div class="num">01</div>
+      <h3>事業継承の当事者として</h3>
+      <p>旅館2施設の事業継承を自ら経験。オーナー目線の課題を深く理解しています。</p>
+    </div>
+    <div class="reason-card">
+      <div class="num">02</div>
+      <h3>飲食経営の実践知</h3>
+      <p>複数の飲食店経営経験から、現場のリアルな課題解決策を持っています。</p>
+    </div>
+    <div class="reason-card">
+      <div class="num">03</div>
+      <h3>旅館×飲食 両方に対応</h3>
+      <p>宿泊と飲食、両業態の知見を掛け合わせた唯一のコンサルタントです。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 05 サービス -->
+<section style="background:#f7f7f7; max-width:100%; padding: 70px 40px;">
+  <div style="max-width:900px; margin: 0 auto;">
+    <span class="sec-num">05 — SERVICE</span>
+    <div class="service-heading">
+      <h2>サービスプラン</h2>
+      <p class="note">3ヶ月単位。課題の深さと予算に合わせてお選びください。</p>
+    </div>
+
+    <div class="plan-table">
+
+      <!-- 梅 -->
+      <div class="plan-col">
+        <div class="plan-header">
+          <div class="plan-badge">遠隔支援</div>
+          <div class="plan-name">梅</div>
+          <div class="plan-sub">まず数字から変えたい方へ</div>
+          <div class="plan-price">7<span>万円</span> <span style="font-size:11px">/ 3ヶ月</span></div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="icon">▸</span>現地訪問 1回（初期診断）</div>
+          <div class="plan-row"><span class="icon">▸</span>オンライン月2回</div>
+          <div class="plan-row"><span class="icon">▸</span>月次コンサルティングレポート</div>
+          <div class="plan-target">初期診断のみ現地で行い、あとはオンラインで数字を追います。</div>
+        </div>
+      </div>
+
+      <!-- 竹（推奨） -->
+      <div class="plan-col recommended">
+        <div class="plan-header">
+          <div class="plan-badge">▶ おすすめ</div>
+          <div class="plan-name">竹</div>
+          <div class="plan-sub">継続的な伴走支援</div>
+          <div class="plan-price">15<span>万円</span> <span style="font-size:11px">/ 3ヶ月</span></div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="icon">▸</span>現地訪問 月1回</div>
+          <div class="plan-row"><span class="icon">▸</span>オンライン 隔週</div>
+          <div class="plan-row"><span class="icon">▸</span>月次コンサルティングレポート</div>
+          <div class="plan-row"><span class="icon">▸</span>チャットサポート（24h以内返信）</div>
+          <div class="plan-row"><span class="icon">▸</span>成果報酬オプション（本契約移行時）</div>
+          <div class="plan-target">訪問を月1に絞りつつ、オンラインで週次の動きをフォロー。収益性と支援密度のバランス型。</div>
+        </div>
+      </div>
+
+      <!-- 松 -->
+      <div class="plan-col">
+        <div class="plan-header">
+          <div class="plan-badge">集中改善</div>
+          <div class="plan-name">松</div>
+          <div class="plan-sub">早期に変化を起こしたい方へ</div>
+          <div class="plan-price">30<span>万円</span> <span style="font-size:11px">/ 3ヶ月</span></div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="icon">▸</span>現地訪問 月2回（1日集中）</div>
+          <div class="plan-row"><span class="icon">▸</span>チャット相談 無制限</div>
+          <div class="plan-row"><span class="icon">▸</span>月次コンサルティングレポート</div>
+          <div class="plan-row"><span class="icon">▸</span>AI活用コンサルティング</div>
+          <div class="plan-row"><span class="icon">▸</span>成果報酬オプション（本契約移行時）</div>
+          <div class="plan-target">移動回数より訪問密度を優先。現場に深く入り込み、AIツールも活用しながらスピード感ある改善を実行します。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- スポットコンサル -->
+    <div style="margin-top: 24px; border: 2px dashed #bbb; padding: 24px 28px; background: #fff; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div>
+        <div style="font-size:10px; color:#888; margin-bottom:6px;">▸ 単発でまず試したい方へ</div>
+        <div style="font-size:18px; font-weight:bold; margin-bottom:4px;">スポットコンサル</div>
+        <div style="font-size:12px; color:#666; line-height:1.7;">
+          現地訪問 1回（初期診断）／ オンライン月2回／ 月次コンサルティングレポート
+        </div>
+        <div style="font-size:11px; color:#888; margin-top:8px;">期間：1ヶ月　※梅プランと同内容・単月提供</div>
+      </div>
+      <div style="text-align:center; flex-shrink:0;">
+        <div style="font-size:30px; font-weight:bold;">10<span style="font-size:14px; font-weight:normal;">万円</span></div>
+        <div style="font-size:11px; color:#888;">/ 1ヶ月</div>
+      </div>
+    </div>
+
+    <!-- 付加価値 -->
+    <div class="value-add-section">
+      <div class="value-add-title">全プラン共通の付加価値</div>
+      <div class="value-add-grid">
+        <div class="value-add-card">
+          <div class="va-icon">📋</div>
+          <h4>月次コンサルティングレポート</h4>
+          <p>現地訪問・オンライン面談のサマリ、課題・問題点の整理、翌月のアクション計画に加え、エリア市場動向データをまとめて毎月お届けします。</p>
+        </div>
+        <div class="value-add-card">
+          <div class="va-icon">💬</div>
+          <h4>チャットサポート</h4>
+          <p>Slack / LINE で24時間以内に返信。「面談を待たずに動ける」環境を提供します。</p>
+        </div>
+        <div class="value-add-card">
+          <div class="va-icon">📈</div>
+          <h4>成果報酬オプション</h4>
+          <p>3ヶ月後の本契約移行時に選択可。基本料金＋売上増の○％で、成果を共有します。</p>
+        </div>
+      </div>
+      <div class="value-add-grid" style="margin-top: 16px;">
+        <div class="value-add-card" style="grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 16px; text-align: left;">
+          <div class="va-icon" style="flex-shrink:0; font-size:28px;">🤖</div>
+          <div>
+            <h4 style="font-size:13px; margin-bottom:6px;">AI活用コンサルティング（松プラン限定）</h4>
+            <p style="font-size:12px; color:#666; line-height:1.6;">AIツールを活用した集客データ分析・価格戦略の立案、予約管理や顧客対応の業務効率化提案、SNS・レビュー分析による改善施策立案など、最新のAI活用ノウハウを現場に導入します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 06 中間CTA -->
+<div class="mid-cta full-width">
+  <p>まずは気軽にご相談ください。無料相談受付中。</p>
+  <div class="mid-cta-buttons">
+    <button class="btn-outline">📞 070-8485-9229</button>
+    <button class="btn-fill">無料相談フォームへ</button>
+  </div>
+</div>
+
+
+<!-- 07 WORKS 実績 -->
+<section>
+  <span class="sec-num">07 — WORKS</span>
+  <div class="works-heading">
+    <h2>支援実績</h2>
+    <p class="note">数字で見る、変化の記録</p>
+  </div>
+  <div class="works-grid">
+    <div class="works-card">
+      <div class="placeholder card-img">施設写真 or 業種アイコン</div>
+      <div class="card-body">
+        <div class="industry">旅館 / 集客改善</div>
+        <h3>【課題タイトル】<br>OTA依存からの脱却</h3>
+        <div class="before-after">
+          <div class="before-box">Before<br><strong>直販率 ○%</strong></div>
+          <div class="arrow-box">→</div>
+          <div class="after-box">After<br><strong>直販率 ○%</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="works-card">
+      <div class="placeholder card-img">施設写真 or 業種アイコン</div>
+      <div class="card-body">
+        <div class="industry">飲食店 / 売上改善</div>
+        <h3>【課題タイトル】<br>客単価・回転率の改善</h3>
+        <div class="before-after">
+          <div class="before-box">Before<br><strong>客単価 ○○○○円</strong></div>
+          <div class="arrow-box">→</div>
+          <div class="after-box">After<br><strong>客単価 ○○○○円</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="works-card">
+      <div class="placeholder card-img">施設写真 or 業種アイコン</div>
+      <div class="card-body">
+        <div class="industry">旅館 / 事業継承</div>
+        <h3>【課題タイトル】<br>後継者不在からの再生</h3>
+        <div class="before-after">
+          <div class="before-box">Before<br><strong>状況テキスト</strong></div>
+          <div class="arrow-box">→</div>
+          <div class="after-box">After<br><strong>成果テキスト</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 08 依頼フロー -->
+<div class="flow-section full-width">
+  <div class="flow-inner">
+    <span class="sec-num">08 — FLOW</span>
+    <div class="flow-heading">
+      <h2>ご相談の流れ</h2>
+      <p class="note">無料相談から支援開始まで、最短○日</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">STEP 01</div>
+        <h3>無料相談</h3>
+        <p>フォームまたはお電話でお申込み。現状の課題をヒアリングします。（約○分・オンライン可）</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">STEP 02</div>
+        <h3>課題整理・ご提案</h3>
+        <p>ヒアリング内容をもとに、最適なサービスと進め方をご提案します。</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">STEP 03</div>
+        <h3>支援スタート</h3>
+        <p>ご契約後、すぐに動き始めます。月次の定例MTGを軸に伴走します。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 09 FAQ -->
+<section>
+  <span class="sec-num">09 — FAQ</span>
+  <div class="faq-heading">
+    <h2>よくある質問</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q</span>旅館と飲食店、どちらの相談もできますか？</div>
+      <div class="faq-a">どちらでも相談可能です。貴社の経営課題や旅館・飲食特有のお悩みをご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q</span>地方の施設でも対応してもらえますか？</div>
+      <div class="faq-a">対応可能です。各プラン1回以上の現地訪問を実施しており、貴社施設の実際の運用等をしっかりと確認させていただきます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q</span>月額顧問とスポットはどう選べばいいですか？</div>
+      <div class="faq-a">ご支援の雰囲気を本格的かつお試しで感じたい方にはスポットコンサルをご提案しています。継続的にご支援を要望の際は月額顧問をぜひご検討ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q</span>効果が出るまでどのくらいかかりますか？</div>
+      <div class="faq-a">効果が出るまでの期間等は確約できませんが、早い方であれば2〜3ヶ月目に小さな変化が生じます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="q-label">Q</span>無料相談だけで終わっても大丈夫ですか？</div>
+      <div class="faq-a">もちろん問題ございません。金銭的な対価を目標とするのではなく、コンサルティングを通して地域の創生につながればと考えているため、無料相談にて何か気付きを得ていただけたのであれば本望でございます。</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 10 最終CTA -->
+<div class="final-cta full-width">
+  <h2>まずは、無料でご相談ください。</h2>
+  <p>「相談するほどでもないかも」と思っていることほど、<br>一緒に話すと糸口が見つかります。</p>
+  <div class="form-mock">
+    <input type="text" placeholder="お名前">
+    <input type="text" placeholder="施設名・屋号">
+    <input type="email" placeholder="メールアドレス">
+    <select>
+      <option>業種を選択（旅館 / 飲食店 / その他）</option>
+    </select>
+    <textarea placeholder="相談内容（任意）"></textarea>
+    <button>無料相談を申し込む →</button>
+  </div>
+  <p class="note" style="color:#666; margin-top:16px;">または お電話：<a href="tel:07084859229" style="color:#aaa;">070-8485-9229</a>（受付時間 平日 ○:○○〜○:○○）</p>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-nav">
+    <a href="#">サービス</a>
+    <a href="#">実績</a>
+    <a href="#">プロフィール</a>
+    <a href="#">よくある質問</a>
+    <a href="#">プライバシーポリシー</a>
+  </div>
+  <p style="margin-bottom:8px;">
+    株式会社TOJISM　代表取締役 小野順平
+  </p>
+  <p style="margin-bottom:8px; font-size:11px;">
+    〒869-2501 熊本県阿蘇郡小国町大字下城字流泉3397-1（丸正旅館内）
+  </p>
+  <p style="margin-bottom:16px; font-size:11px;">
+    TEL: <a href="tel:07084859229" style="color:#888;">070-8485-9229</a>
+    MAIL: <a href="mailto:do1026jun@gmail.com" style="color:#888;">do1026jun@gmail.com</a>
+  </p>
+  <p>© 2026 株式会社TOJISM All rights reserved.</p>
+</footer>
+
+</body>
+</html>

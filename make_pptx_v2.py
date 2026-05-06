@@ -782,9 +782,9 @@ def s_roi(prs):
        fn=JP, sz=10, fc=GOLD)
     plans_p = [
         ("スポットコンサル",  "5万円",   "/ 件"),
-        ("エッセンシャル",    "21万円",  "/ 3ヶ月"),
-        ("スタンダード",      "45万円",  "/ 3ヶ月"),
-        ("エグゼクティブ",    "90万円",  "/ 3ヶ月"),
+        ("エッセンシャル",    "7万円",   "/ 3ヶ月"),
+        ("スタンダード",      "15万円",  "/ 3ヶ月"),
+        ("エグゼクティブ",    "30万円",  "/ 3ヶ月"),
     ]
     for j, (pname, price, period) in enumerate(plans_p):
         py = Inches(2.55) + j * Inches(0.95)
@@ -805,9 +805,9 @@ def s_roi(prs):
 
     cons_rows = [
         ("スポット",     "2件", "×  5万円", "10万円"),
-        ("エッセンシャル","2件", "× 21万円", "42万円"),
-        ("スタンダード", "1件", "× 45万円", "45万円"),
-        ("エグゼクティブ","1件", "× 90万円", "90万円"),
+        ("エッセンシャル","2件", "×  7万円", "14万円"),
+        ("スタンダード", "1件", "× 15万円", "15万円"),
+        ("エグゼクティブ","1件", "× 30万円", "30万円"),
     ]
     for j, (pn, cnt, mul, amt) in enumerate(cons_rows):
         ry = Inches(2.6) + j * Inches(0.66)
@@ -824,7 +824,7 @@ def s_roi(prs):
     box(s, cx1, Inches(5.28), cw, Inches(0.55), fill=RGBColor(0x22,0x3A,0x22))
     tb(s, "年間売上（概算）", cx1+Inches(0.15), Inches(5.37),
        Inches(2.5), Inches(0.32), fn=JP, sz=10, fc=TEAL)
-    tb(s, "187万円", cx1+Inches(2.6), Inches(5.33),
+    tb(s, "69万円", cx1+Inches(2.6), Inches(5.33),
        Inches(1.35), Inches(0.38), fn=JPS, sz=20, fc=GREEN, bold=False, align=PP_ALIGN.RIGHT)
 
     # 目標シナリオ
@@ -835,9 +835,9 @@ def s_roi(prs):
 
     tgt_rows = [
         ("スポット",     "2件",  "×  5万円",  "10万円"),
-        ("エッセンシャル","3件",  "× 21万円",  "63万円"),
-        ("スタンダード", "3件",  "× 45万円", "135万円"),
-        ("エグゼクティブ","2件",  "× 90万円", "180万円"),
+        ("エッセンシャル","3件",  "×  7万円",  "21万円"),
+        ("スタンダード", "3件",  "× 15万円",  "45万円"),
+        ("エグゼクティブ","2件",  "× 30万円",  "60万円"),
     ]
     for j, (pn, cnt, mul, amt) in enumerate(tgt_rows):
         ry = Inches(2.6) + j * Inches(0.66)
@@ -854,7 +854,7 @@ def s_roi(prs):
     box(s, cx2, Inches(5.28), cw, Inches(0.55), fill=RGBColor(0x1A,0x44,0x1A))
     tb(s, "年間売上（概算）", cx2+Inches(0.15), Inches(5.37),
        Inches(2.5), Inches(0.32), fn=JP, sz=10, fc=TEAL)
-    tb(s, "388万円", cx2+Inches(2.55), Inches(5.33),
+    tb(s, "136万円", cx2+Inches(2.55), Inches(5.33),
        Inches(1.4), Inches(0.38), fn=JPS, sz=20, fc=GREEN, bold=False, align=PP_ALIGN.RIGHT)
 
     # ROI比較バー
@@ -865,7 +865,7 @@ def s_roi(prs):
     tb(s, "Brain支援の実質自己負担：ほぼ0円（補助金活用）",
        Inches(0.45), Inches(6.48), Inches(5.5), Inches(0.3),
        fn=JP, sz=11.5, fc=WHITE)
-    tb(s, "保守 +187万円  /  目標 +388万円  の売上増が見込める",
+    tb(s, "保守 +69万円  /  目標 +136万円  の売上増が見込める",
        Inches(6.2), Inches(6.48), Inches(6.7), Inches(0.3),
        fn=JP, sz=11.5, fc=GREEN, bold=True)
 

@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小野順平 | 旅館・飲食業専門コンサルタント</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:       #F7F4EF;
+  --cream-alt:   #EDEAE3;
+  --white:       #FFFFFF;
+  --dark:        #1C1A16;
+  --dark-2:      #26231E;
+  --gold:        #B8935A;
+  --gold-light:  #D4AF7A;
+  --text:        #2C2924;
+  --mid:         #6B6359;
+  --border:      #DDD5C5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  font-weight: 300;
+  background: var(--cream);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: 72px;
+  background: rgba(247, 244, 239, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+.logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+header nav a {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--mid);
+  transition: color .2s;
+}
+header nav a:hover { color: var(--text); }
+.btn-header {
+  display: inline-block;
+  padding: 10px 26px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  transition: background .2s;
+}
+.btn-header:hover { background: var(--dark-2); }
+
+/* ===== HERO ===== */
+.hero {
+  padding-top: 72px;
+  background: var(--cream);
+}
+.hero-main {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: calc(100vh - 72px);
+  max-height: 820px;
+}
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px 80px 100px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 5px 14px;
+  margin-bottom: 36px;
+}
+.hero-text-col h1 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+.hero-sub {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.9;
+  margin-bottom: 44px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 16px 36px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+  transition: background .2s;
+}
+.btn-primary:hover { background: var(--dark-2); }
+.btn-primary-arrow::after { content: '→'; }
+.hero-note {
+  font-size: 11px;
+  color: var(--mid);
+  margin-top: 14px;
+  letter-spacing: 0.05em;
+}
+.hero-photo-col {
+  overflow: hidden;
+  position: relative;
+}
+.hero-photo-col::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--cream) 0%, transparent 15%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.hero-badges {
+  background: var(--dark);
+  display: flex;
+  justify-content: center;
+}
+.badge-item {
+  padding: 28px 60px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.badge-item:last-child { border-right: none; }
+.badge-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.badge-num small { font-size: 14px; }
+.badge-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+
+/* ===== SECTION BASE ===== */
+.section { padding: 100px 0; }
+.section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.sec-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.heading-block { margin-bottom: 56px; }
+.heading-block.center { text-align: center; }
+.heading-block h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  position: relative;
+  padding-bottom: 22px;
+}
+.heading-block h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+.heading-block.center h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.heading-block .sub {
+  font-size: 13px;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+}
+
+/* ===== 02 PAIN ===== */
+.pain-section { background: var(--cream-alt); }
+.pain-lead {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.pain-lead h2 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.pain-note {
+  font-size: 13px;
+  color: var(--mid);
+}
+.checklist {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--cream-alt);
+}
+.check-item:last-child,
+.check-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+.check-diamond {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+.pain-cta-bar {
+  margin-top: 32px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 22px 32px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+/* ===== 03 MISSION ===== */
+.mission-section {
+  position: relative;
+  overflow: hidden;
+}
+.mission-bg {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.mission-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+.mission-box {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(4px);
+  max-width: 860px;
+  width: 100%;
+  padding: 60px 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.mission-text .sec-label { color: var(--gold); }
+.mission-text h2 {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--mid);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.mission-text p {
+  font-size: 14px;
+  line-height: 2.1;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.mission-text p:last-child { margin-bottom: 0; }
+.mission-photo {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.mission-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ===== 04 REASON ===== */
+/* ===== EXPERTISE ===== */
+.expertise-section { background: var(--cream-alt); }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.expertise-card {
+  background: var(--white);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.expertise-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.expertise-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+.expertise-card p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.85;
+  flex: 1;
+}
+.expertise-card-accent {
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 4px;
+}
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.reason-card {
+  background: var(--white);
+  padding: 40px 32px;
+}
+.reason-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--gold-light);
+  opacity: 0.5;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.reason-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.reason-card p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.9;
+}
+
+/* ===== 05 SERVICE ===== */
+.service-section {
+  background: var(--dark);
+  color: var(--white);
+  padding: 100px 0;
+}
+.service-section .sec-label { color: rgba(212, 175, 122, 0.6); }
+.service-section .heading-block h2 { color: var(--white); }
+.service-section .heading-block h2::after { background: var(--gold); }
+.service-section .heading-block .sub { color: rgba(255,255,255,0.35); }
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 40px;
+}
+.plan-col {
+  background: #222019;
+  display: flex;
+  flex-direction: column;
+}
+.plan-col.recommended {
+  background: #1C1A16;
+  outline: 1px solid var(--gold);
+  outline-offset: -1px;
+  position: relative;
+  z-index: 1;
+}
+.plan-header {
+  padding: 32px 28px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.plan-col.recommended .plan-header { border-bottom-color: rgba(184,147,90,0.25); }
+.plan-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  padding: 4px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 18px;
+}
+.plan-col.recommended .plan-badge {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.plan-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.plan-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+.plan-price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.plan-price small { font-size: 14px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.plan-price .period {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+.plan-body { padding: 24px 28px; flex: 1; }
+.plan-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.5;
+}
+.plan-row:last-of-type { border-bottom: none; }
+.plan-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.plan-target {
+  margin-top: 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.8;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.spot-card {
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 56px;
+}
+.spot-tag {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.spot-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.spot-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.75;
+}
+.spot-price-col { text-align: center; flex-shrink: 0; }
+.spot-price-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.spot-price-num small { font-size: 15px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.spot-price-period {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 6px;
+}
+
+.value-heading {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 1px;
+}
+.value-card {
+  background: #141310;
+  padding: 28px 24px;
+}
+.value-icon { font-size: 20px; margin-bottom: 14px; }
+.value-card h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+}
+.value-card p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.8;
+}
+.value-card-wide {
+  grid-column: 1 / -1;
+  background: #141310;
+  padding: 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.value-card-wide .value-icon { font-size: 24px; flex-shrink: 0; margin-bottom: 0; }
+.value-card-wide h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 6px;
+}
+.value-card-wide p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.8;
+}
+
+/* ===== 06 MID CTA ===== */
+.mid-cta {
+  background: var(--gold);
+  padding: 60px 40px;
+  text-align: center;
+}
+.mid-cta p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark);
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+}
+.mid-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-dark {
+  display: inline-block;
+  background: var(--dark);
+  color: var(--white);
+  padding: 14px 36px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  border: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: opacity .2s;
+}
+.btn-dark:hover { opacity: 0.85; }
+.btn-outline-dark {
+  display: inline-block;
+  background: transparent;
+  color: var(--dark);
+  padding: 14px 36px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--dark);
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: background .2s, color .2s;
+}
+.btn-outline-dark:hover { background: var(--dark); color: var(--white); }
+
+/* ===== 07 WORKS ===== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.works-card { background: var(--white); overflow: hidden; }
+.works-img {
+  height: 180px;
+  background: var(--cream-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--mid);
+}
+.works-body { padding: 24px 24px 28px; }
+.works-tag {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.works-body h3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr;
+  gap: 0;
+  align-items: center;
+  font-size: 12px;
+}
+.ba-box {
+  padding: 12px 8px;
+  text-align: center;
+}
+.ba-box.before { background: #F5F0E8; color: var(--mid); }
+.ba-box.after  { background: var(--dark); color: var(--white); }
+.ba-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
+.ba-val { font-weight: 500; }
+.ba-arrow {
+  text-align: center;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+/* ===== 08 FLOW ===== */
+.flow-section { background: var(--cream-alt); }
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.flow-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: none;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+}
+.flow-step:first-child { border-left: 1px solid var(--border); }
+.flow-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 18px;
+  z-index: 1;
+}
+.flow-step-num {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.flow-step h3 {
+  font-size: 17px;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.flow-step p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+/* ===== 09 FAQ ===== */
+.faq-list { border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: var(--white);
+  cursor: pointer;
+  transition: background .2s;
+}
+.faq-q:hover { background: var(--cream); }
+.q-mark {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+.faq-q-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.faq-a {
+  padding: 18px 24px 22px 64px;
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.9;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== 10 FINAL CTA ===== */
+.final-cta {
+  background: var(--dark);
+  color: var(--white);
+  padding: 120px 0;
+  text-align: center;
+}
+.final-cta .sec-label { color: rgba(212,175,122,0.6); }
+.final-cta h2 {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.final-cta h2::after { display: none; }
+.final-cta .lead {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 2;
+  margin-bottom: 60px;
+}
+
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 6px;
+}
+.form-control {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.form-control:focus { border-color: var(--gold); }
+.form-control::placeholder { color: rgba(255,255,255,0.2); }
+.form-control option { background: var(--dark); color: var(--white); }
+textarea.form-control { height: 100px; resize: vertical; }
+.form-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: opacity .2s;
+}
+.form-submit:hover { opacity: 0.88; }
+.tel-note {
+  margin-top: 28px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.28);
+}
+.tel-note a { color: rgba(255,255,255,0.45); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0D0C0A;
+  padding: 56px 60px 32px;
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-brand-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 14px;
+}
+.footer-info {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  line-height: 2;
+}
+.footer-info a { color: rgba(255,255,255,0.35); }
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.footer-nav a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.28);
+  transition: color .2s;
+}
+.footer-nav a:hover { color: rgba(255,255,255,0.6); }
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">株式会社TOJISM</a>
+  <nav>
+    <a href="#service">サービス</a>
+    <a href="#works">実績</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#profile">プロフィール</a>
+  </nav>
+  <a href="#contact" class="btn-header">無料相談する</a>
+</header>
+
+
+<!-- 01 HERO -->
+<div class="hero">
+  <div class="hero-main">
+    <div class="hero-text-col">
+      <span class="hero-tag">旅館・飲食業専門コンサルタント</span>
+      <h1>旅館・飲食業の<br>現場を知る、<br>経営の伴走者。</h1>
+      <p class="hero-sub">
+        事業継承・飲食経営の当事者として歩んできたからこそ、<br>
+        オーナーの悩みに本音で向き合える。<br>
+        現場から変える、地域密着の伴走コンサルティング。
+      </p>
+      <a href="#contact" class="btn-primary btn-primary-arrow">無料相談を申し込む</a>
+      <p class="hero-note">※初回相談無料・オンライン対応可</p>
+    </div>
+    <div class="hero-photo-col">
+      <img src="profile.jpg" alt="小野順平 プロフィール写真">
+    </div>
+  </div>
+
+  <div class="hero-badges">
+    <div class="badge-item">
+      <div class="badge-num">○○<small>年</small></div>
+      <div class="badge-label">コンサルタント歴</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-num">○○<small>件</small></div>
+      <div class="badge-label">総支援施設数</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-num">2<small>施設</small></div>
+      <div class="badge-label">事業継承実績</div>
+    </div>
+    <div class="badge-item">
+      <div class="badge-num">○○<small>業態</small></div>
+      <div class="badge-label">飲食店経営経験</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 02 PAIN POINTS -->
+<div class="pain-section section">
+  <div class="section-inner">
+    <div class="pain-lead">
+      <span class="sec-label">02 — Pain Points</span>
+      <h2>集客・経営・人材…<br>旅館・飲食業の課題、<br>ひとりで抱えていませんか？</h2>
+      <p class="pain-note">ひとつでも当てはまれば、お役に立てます。</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item"><span class="check-diamond"></span>Webサイトからの直接予約が増えない</div>
+      <div class="check-item"><span class="check-diamond"></span>OTA依存から脱却したい</div>
+      <div class="check-item"><span class="check-diamond"></span>インバウンド集客の方法がわからない</div>
+      <div class="check-item"><span class="check-diamond"></span>スタッフの採用・定着に悩んでいる</div>
+      <div class="check-item"><span class="check-diamond"></span>事業継承・後継者問題を抱えている</div>
+      <div class="check-item"><span class="check-diamond"></span>外部コンサルに頼んだが効果が出ない</div>
+      <div class="check-item"><span class="check-diamond"></span>経営数字の読み方・改善方法がわからない</div>
+      <div class="check-item"><span class="check-diamond"></span>相談できる専門家が身近にいない</div>
+    </div>
+    <div class="pain-cta-bar">どれかひとつでも当てはまれば、まずご相談ください。</div>
+  </div>
+</div>
+
+
+<!-- 03 MISSION -->
+<div class="mission-section" id="profile">
+  <img class="mission-bg" src="mission.png" alt="Mission">
+  <div class="mission-overlay">
+    <div class="mission-box">
+      <div class="mission-text">
+        <span class="sec-label">03 — Mission</span>
+        <h2>Mission</h2>
+        <p>
+          ※ここに小野さんの「想い」が入ります。<br>
+          なぜ旅館・飲食業に特化したのか、<br>
+          業界に対してどんな課題感を持っているか。
+        </p>
+        <p>
+          支援を通じてどんな未来を実現したいか、<br>
+          クライアントとどんな関係性を築きたいか。<br>
+          2〜3段落、ご自身の言葉でお聞かせください。
+        </p>
+      </div>
+      <div class="mission-photo">
+        <img src="mission_profile.png" alt="小野順平">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 04 REASON -->
+<div class="section">
+  <div class="section-inner">
+    <span class="sec-label">04 — Reason</span>
+    <div class="heading-block" style="margin-bottom:40px;">
+      <h2>選ばれる3つの理由</h2>
+      <p class="sub">現場経験者だからこそできる支援</p>
+    </div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <h3>事業継承の当事者として</h3>
+        <p>旅館2施設の事業継承を自ら経験。後継者として直面した経営課題、資金繰り、スタッフ関係のリアルを知っているからこそ、オーナー目線の提案ができます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <h3>飲食経営の実践知</h3>
+        <p>複数の飲食店経営経験から、原価管理・メニュー戦略・スタッフ育成まで、現場に根ざした改善策を持っています。理論だけでない実践的サポートが強みです。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03</div>
+        <h3>旅館×飲食 両方に対応</h3>
+        <p>宿泊と飲食、両業態の知見を掛け合わせた唯一のコンサルタントです。相互送客・連携メニューなど、複合的な視点での提案が可能です。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- EXPERTISE 支援領域 -->
+<div class="expertise-section section">
+  <div class="section-inner">
+    <span class="sec-label">Expertise</span>
+    <div class="heading-block" style="margin-bottom:40px;">
+      <h2>こんなご相談が得意です</h2>
+      <p class="sub">旅館・飲食業の現場経験をもとに、幅広い課題に対応します。</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>ポータルサイトに依存しない<br>集客の仕組み化</h3>
+        <p>じゃらん・楽天などへの依存から脱却し、自社サイトや SNS を軸にした直接集客の流れをつくります。</p>
+      </div>
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><line x1="7" y1="2" x2="7" y2="22"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>食事メニュー開発・<br>提供オペレーションの仕組み化</h3>
+        <p>地域食材の活かし方から仕込み・提供フローの標準化まで、収益とクオリティを両立する体制を整えます。</p>
+      </div>
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>AIなどのICTテクノロジーを<br>活用したオペレーション改善</h3>
+        <p>予約管理・顧客対応・データ分析など、現場に合ったデジタルツールの選定・導入をサポートします。</p>
+      </div>
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>補助金・助成金の活用</h3>
+        <p>設備投資・デジタル化・雇用関連など、活用できる公的支援制度の調査から申請サポートまで対応します。</p>
+      </div>
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>トラブル対応・<br>苦情処理</h3>
+        <p>クレーム対応の仕組みづくりから、発生時の具体的な対処法まで、オーナーの精神的負担を軽減します。</p>
+      </div>
+      <div class="expertise-card">
+        <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+        </svg>
+        <div class="expertise-card-accent"></div>
+        <h3>事業継承に伴う<br>各種手続き</h3>
+        <p>自ら2施設の事業継承を経験した立場から、法的手続き・関係者調整・引き継ぎ計画まで伴走します。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 SERVICE -->
+<div class="service-section" id="service">
+  <div class="section-inner">
+    <span class="sec-label">05 — Service</span>
+    <div class="heading-block" style="margin-bottom:48px;">
+      <h2>サービスプラン</h2>
+      <p class="sub">3ヶ月単位。課題の深さと予算に合わせてお選びください。</p>
+    </div>
+
+    <div class="plan-grid">
+
+      <!-- 梅 -->
+      <div class="plan-col">
+        <div class="plan-header">
+          <div class="plan-badge">遠隔支援</div>
+          <div class="plan-name">エッセンシャル</div>
+          <div class="plan-sub">まず数字から変えたい方へ</div>
+          <div class="plan-price">
+            7<small>万円</small>
+            <span class="period">/ 3ヶ月</span>
+          </div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="plan-dot"></span>現地訪問 1回（初期診断）</div>
+          <div class="plan-row"><span class="plan-dot"></span>オンライン 月2回</div>
+          <div class="plan-row"><span class="plan-dot"></span>月次コンサルティングレポート</div>
+          <p class="plan-target">初期診断のみ現地で行い、あとはオンラインで数字を追います。コストを抑えながら改善の第一歩を踏み出したい方に。</p>
+        </div>
+      </div>
+
+      <!-- 竹（推奨） -->
+      <div class="plan-col recommended">
+        <div class="plan-header">
+          <div class="plan-badge">▶ おすすめ</div>
+          <div class="plan-name">スタンダード</div>
+          <div class="plan-sub">継続的な伴走支援</div>
+          <div class="plan-price">
+            15<small>万円</small>
+            <span class="period">/ 3ヶ月</span>
+          </div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="plan-dot"></span>現地訪問 月1回</div>
+          <div class="plan-row"><span class="plan-dot"></span>オンライン 隔週</div>
+          <div class="plan-row"><span class="plan-dot"></span>月次コンサルティングレポート</div>
+          <div class="plan-row"><span class="plan-dot"></span>チャットサポート（24h以内返信）</div>
+          <div class="plan-row"><span class="plan-dot"></span>成果報酬オプション（本契約移行時）</div>
+          <p class="plan-target">訪問を月1に絞りつつ、オンラインで週次の動きをフォロー。収益性と支援密度のバランス型。</p>
+        </div>
+      </div>
+
+      <!-- 松 -->
+      <div class="plan-col">
+        <div class="plan-header">
+          <div class="plan-badge">集中改善</div>
+          <div class="plan-name">エグゼクティブ</div>
+          <div class="plan-sub">早期に変化を起こしたい方へ</div>
+          <div class="plan-price">
+            30<small>万円</small>
+            <span class="period">/ 3ヶ月</span>
+          </div>
+        </div>
+        <div class="plan-body">
+          <div class="plan-row"><span class="plan-dot"></span>現地訪問 月2回（1日集中）</div>
+          <div class="plan-row"><span class="plan-dot"></span>チャット相談 無制限</div>
+          <div class="plan-row"><span class="plan-dot"></span>月次コンサルティングレポート</div>
+          <div class="plan-row"><span class="plan-dot"></span>AI活用コンサルティング</div>
+          <div class="plan-row"><span class="plan-dot"></span>成果報酬オプション（本契約移行時）</div>
+          <p class="plan-target">移動回数より訪問密度を優先。現場に深く入り込み、AIツールも活用しながらスピード感ある改善を実行します。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- スポットコンサル -->
+    <div class="spot-card">
+      <div>
+        <div class="spot-tag">▸ 単発でまず試したい方へ</div>
+        <div class="spot-name">スポットコンサル</div>
+        <div class="spot-desc">
+          現地訪問（課題ヒアリング＆アドバイス）／ コンサルティングレポート作成<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25); margin-top:10px; display:block;">※現地訪問にかかる交通費・宿泊費等は実費別途ご負担いただきます</span>
+        </div>
+      </div>
+      <div class="spot-price-col">
+        <div class="spot-price-num">5<small>万円</small></div>
+        <div class="spot-price-period">+ 現地訪問実費</div>
+      </div>
+    </div>
+
+    <!-- 付加価値 -->
+    <div class="value-heading">全プラン共通の付加価値</div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">📋</div>
+        <h4>月次コンサルティングレポート</h4>
+        <p>現地訪問・オンライン面談のサマリ、課題整理、翌月のアクション計画に加え、エリア市場動向データを毎月お届けします。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💬</div>
+        <h4>チャットサポート</h4>
+        <p>Slack / LINE で24時間以内に返信。「面談を待たずに動ける」環境を提供します。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📈</div>
+        <h4>成果報酬オプション</h4>
+        <p>3ヶ月後の本契約移行時に選択可。基本料金＋売上増の一定割合で、成果を共に追います。</p>
+      </div>
+    </div>
+    <div class="value-card-wide">
+      <div class="value-icon">🤖</div>
+      <div>
+        <h4>AI活用コンサルティング（松プラン限定）</h4>
+        <p>AIツールを活用した集客データ分析・価格戦略立案、予約管理や顧客対応の業務効率化提案、SNS・レビュー分析による改善施策立案など、最新のAI活用ノウハウを現場に導入します。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 06 MID CTA -->
+<div class="mid-cta">
+  <p>まずは気軽にご相談ください。無料相談受付中。</p>
+  <div class="mid-cta-btns">
+    <a href="tel:07084859229" class="btn-outline-dark">📞 070-8485-9229</a>
+    <a href="#contact" class="btn-dark">無料相談フォームへ →</a>
+  </div>
+</div>
+
+
+<!-- 07 WORKS -->
+<div class="section" id="works">
+  <div class="section-inner">
+    <span class="sec-label">07 — Works</span>
+    <div class="heading-block" style="margin-bottom:40px;">
+      <h2>支援実績</h2>
+      <p class="sub">数字で見る、変化の記録</p>
+    </div>
+    <div class="works-grid">
+      <div class="works-card">
+        <div class="works-img">施設写真 / 業種アイコン</div>
+        <div class="works-body">
+          <div class="works-tag">旅館 / 集客改善</div>
+          <h3>予約サイト依存からの脱却</h3>
+          <div class="before-after">
+            <div class="ba-box before"><span class="ba-label">Before</span><span class="ba-val">直販率 ○%</span></div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-box after"><span class="ba-label">After</span><span class="ba-val">直販率 ○%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="works-card">
+        <div class="works-img">施設写真 / 業種アイコン</div>
+        <div class="works-body">
+          <div class="works-tag">飲食店 / 売上改善</div>
+          <h3>客単価・回転率の改善</h3>
+          <div class="before-after">
+            <div class="ba-box before"><span class="ba-label">Before</span><span class="ba-val">客単価 ○,○○○円</span></div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-box after"><span class="ba-label">After</span><span class="ba-val">客単価 ○,○○○円</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="works-card">
+        <div class="works-img">施設写真 / 業種アイコン</div>
+        <div class="works-body">
+          <div class="works-tag">旅館 / 事業継承</div>
+          <h3>後継者不在からの再生</h3>
+          <div class="before-after">
+            <div class="ba-box before"><span class="ba-label">Before</span><span class="ba-val">廃業検討中</span></div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-box after"><span class="ba-label">After</span><span class="ba-val">継承・再建</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 08 FLOW -->
+<div class="flow-section section">
+  <div class="section-inner">
+    <span class="sec-label">08 — Flow</span>
+    <div class="heading-block center" style="margin-bottom:40px;">
+      <h2>ご相談の流れ</h2>
+      <p class="sub">無料相談から支援開始まで、最短○日</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 01</div>
+        <h3>無料相談</h3>
+        <p>フォームまたはお電話でお申込み。現状の課題をヒアリングします。（約60分・オンライン可）</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 02</div>
+        <h3>課題整理・ご提案</h3>
+        <p>ヒアリング内容をもとに、最適なサービスと進め方をご提案します。</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 03</div>
+        <h3>支援スタート</h3>
+        <p>ご契約後、すぐに動き始めます。月次の定例MTGを軸に伴走します。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 09 FAQ -->
+<div class="section" id="faq">
+  <div class="section-inner">
+    <span class="sec-label">09 — FAQ</span>
+    <div class="heading-block" style="margin-bottom:40px;">
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span><span class="faq-q-text">旅館と飲食店、どちらの相談もできますか？</span></div>
+        <div class="faq-a">どちらでも相談可能です。貴社の経営課題や旅館・飲食特有のお悩みをご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span><span class="faq-q-text">地方の施設でも対応してもらえますか？</span></div>
+        <div class="faq-a">対応可能です。各プラン1回以上の現地訪問を実施しており、貴社施設の実際の運用等をしっかりと確認させていただきます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span><span class="faq-q-text">月額顧問とスポットはどう選べばいいですか？</span></div>
+        <div class="faq-a">ご支援の雰囲気を本格的かつお試しで感じたい方にはスポットコンサルをご提案しています。継続的にご支援を要望の際は月額顧問をぜひご検討ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span><span class="faq-q-text">効果が出るまでどのくらいかかりますか？</span></div>
+        <div class="faq-a">効果が出るまでの期間等は確約できませんが、早い方であれば2〜3ヶ月目に小さな変化が生じます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span><span class="faq-q-text">無料相談だけで終わっても大丈夫ですか？</span></div>
+        <div class="faq-a">もちろん問題ございません。金銭的な対価を目標とするのではなく、コンサルティングを通して地域の創生につながればと考えているため、無料相談にて何か気付きを得ていただけたのであれば本望でございます。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 10 FINAL CTA -->
+<div class="final-cta" id="contact">
+  <div class="section-inner">
+    <span class="sec-label">10 — Contact</span>
+    <h2>まずは、無料でご相談ください。</h2>
+    <p class="lead">
+      「相談するほどでもないかも」と思っていることほど、<br>
+      一緒に話すと糸口が見つかります。
+    </p>
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label">お名前</label>
+        <input type="text" class="form-control" placeholder="山田 太郎">
+      </div>
+      <div class="form-group">
+        <label class="form-label">施設名・屋号</label>
+        <input type="text" class="form-control" placeholder="○○旅館 / ○○飲食店">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス</label>
+        <input type="email" class="form-control" placeholder="example@mail.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">業種</label>
+        <select class="form-control">
+          <option value="">業種を選択してください</option>
+          <option>旅館・宿泊施設</option>
+          <option>飲食店</option>
+          <option>旅館・飲食 両方</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">相談内容（任意）</label>
+        <textarea class="form-control" placeholder="お気軽にご記入ください"></textarea>
+      </div>
+      <button class="form-submit">無料相談を申し込む →</button>
+    </div>
+    <p class="tel-note">
+      または お電話：<a href="tel:07084859229">070-8485-9229</a>
+    </p>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">株式会社TOJISM</div>
+        <div class="footer-info">
+          代表取締役　小野順平<br>
+          〒869-2501 熊本県阿蘇郡小国町大字下城字流泉3397-1（丸正旅館内）<br>
+          TEL：<a href="tel:07084859229">070-8485-9229</a>
+          MAIL：<a href="mailto:do1026jun@gmail.com">do1026jun@gmail.com</a>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="#service">サービス</a>
+        <a href="#works">実績</a>
+        <a href="#profile">プロフィール</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#">プライバシーポリシー</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 株式会社TOJISM All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

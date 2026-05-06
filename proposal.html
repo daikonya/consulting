@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提案書 | 旅館・飲食業コンサルティング ブランディング戦略</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark:      #1C1A16;
+  --dark-2:    #26231E;
+  --gold:      #B8935A;
+  --gold-l:    #D4AF7A;
+  --cream:     #F7F4EF;
+  --cream-alt: #EDEAE3;
+  --white:     #FFFFFF;
+  --text:      #2C2924;
+  --mid:       #6B6359;
+  --border:    #DDD5C5;
+  --red:       #C0392B;
+  --green:     #27AE60;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  background: #111;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4 { font-family: 'Noto Serif JP', serif; }
+
+/* ===== SLIDE BASE ===== */
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 100px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.slide-num {
+  position: absolute;
+  bottom: 32px;
+  right: 48px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  opacity: 0.3;
+  color: var(--white);
+}
+
+/* ===== COVER ===== */
+.slide-cover {
+  background: var(--dark);
+  color: var(--white);
+  padding: 0;
+  align-items: stretch;
+}
+.cover-inner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  min-height: 100vh;
+}
+.cover-left {
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--dark);
+}
+.cover-right {
+  background: var(--gold);
+  display: flex;
+  align-items: flex-end;
+  padding: 48px;
+}
+.cover-right-inner { color: var(--dark); }
+.cover-right-inner p {
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 400;
+}
+.cover-tag {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--gold-l);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.cover-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.9;
+}
+.cover-meta {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.08em;
+}
+.cover-meta span { margin-right: 24px; }
+
+/* ===== AGENDA ===== */
+.slide-light { background: var(--cream); }
+.slide-dark  { background: var(--dark); color: var(--white); }
+.slide-gold  { background: var(--gold); }
+
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+.slide-dark .sec-label  { color: rgba(212,175,122,0.6); }
+.slide-light .sec-label { color: var(--gold); }
+.slide-gold .sec-label  { color: rgba(28,26,22,0.5); }
+
+.slide-heading {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 24px;
+}
+.slide-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.slide-dark .slide-heading  { color: var(--white); }
+.slide-light .slide-heading { color: var(--text); }
+.slide-gold .slide-heading  { color: var(--dark); }
+.slide-gold .slide-heading::after { background: var(--dark); }
+.slide-sub {
+  font-size: 14px;
+  opacity: 0.5;
+  margin-bottom: 56px;
+}
+
+/* Agenda list */
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+.agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+.agenda-item:last-child { border-bottom: none; }
+.agenda-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+  width: 40px;
+}
+.agenda-text { font-size: 15px; font-weight: 500; }
+.agenda-sub  { font-size: 12px; color: var(--mid); margin-top: 4px; }
+.agenda-tag {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  color: var(--mid);
+  flex-shrink: 0;
+}
+.agenda-tag.hot {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ===== SECTION TITLE SLIDE ===== */
+.slide-section-title {
+  background: var(--dark-2);
+  color: var(--white);
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-bottom: 100px;
+}
+.section-big-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 160px;
+  font-weight: 300;
+  color: rgba(184,147,90,0.12);
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  line-height: 1;
+}
+.section-title-text {
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.4;
+}
+.section-title-en {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* ===== 2-COL LAYOUT ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.two-col-60 {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 28px 28px;
+}
+.card-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px;
+}
+.card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.card p { font-size: 13px; color: var(--mid); line-height: 1.8; }
+.card-dark h4 { color: var(--white); font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+.card-dark p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+
+/* ===== POSITIONING MAP ===== */
+.pos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.pos-cell {
+  background: var(--white);
+  padding: 28px 24px;
+  min-height: 160px;
+  position: relative;
+}
+.pos-cell.target {
+  background: var(--dark);
+}
+.pos-cell .cell-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+.pos-cell.target .cell-label { color: var(--gold); }
+.pos-cell h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.pos-cell.target h4 { color: var(--white); }
+.pos-cell p { font-size: 12px; color: var(--mid); line-height: 1.7; }
+.pos-cell.target p { color: rgba(255,255,255,0.5); }
+.target-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 9px;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 3px 8px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* ===== FUNNEL ===== */
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.funnel-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.funnel-step::after {
+  content: '↓';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 14px;
+  z-index: 1;
+}
+.funnel-step:last-child::after { display: none; }
+.funnel-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.funnel-text h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.funnel-text p  { font-size: 12px; color: var(--mid); }
+.funnel-step.highlight { background: var(--dark); border-color: var(--gold); }
+.funnel-step.highlight h4 { color: var(--white); }
+.funnel-step.highlight p  { color: rgba(255,255,255,0.45); }
+.funnel-step.highlight .funnel-icon { background: var(--gold); }
+
+/* ===== PLAN TABLE ===== */
+.plan-compare {
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr);
+  border: 1px solid var(--border);
+  background: var(--border);
+  gap: 1px;
+}
+.plan-cell {
+  background: var(--white);
+  padding: 16px 20px;
+  font-size: 13px;
+}
+.plan-header-cell {
+  background: var(--white);
+  padding: 20px;
+  text-align: center;
+}
+.plan-header-cell.matsu { background: var(--dark); color: var(--white); }
+.plan-header-cell.take  { background: var(--dark-2); color: var(--white); }
+.plan-header-cell.ume   { background: var(--cream-alt); color: var(--text); }
+.plan-header-cell.label { background: var(--cream-alt); }
+.plan-name { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 400; margin-bottom: 4px; }
+.plan-price { font-size: 28px; font-weight: 300; color: var(--gold-l); font-family: 'Noto Serif JP', serif; }
+.plan-header-cell.ume .plan-price { color: var(--gold); }
+.plan-period { font-size: 11px; opacity: 0.4; margin-top: 4px; }
+.plan-row-label {
+  background: var(--cream-alt);
+  padding: 14px 20px;
+  font-size: 12px;
+  color: var(--mid);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.plan-check {
+  text-align: center;
+  color: var(--green);
+  font-size: 16px;
+}
+.plan-dash  { text-align: center; color: var(--border); font-size: 16px; }
+.plan-val   { text-align: center; font-size: 13px; font-weight: 500; }
+.plan-val.gold { color: var(--gold); }
+.plan-val.red  { color: var(--red); font-size: 11px; }
+.plan-sub-note { font-size: 11px; color: var(--mid); margin-top: 3px; }
+
+/* ===== SUBSIDY FLOW ===== */
+.subsidy-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 32px;
+}
+.subsidy-step {
+  background: #1a1814;
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+}
+.subsidy-step::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 16px;
+  z-index: 1;
+}
+.subsidy-step:last-child::after { display: none; }
+.s-num { font-size: 10px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 10px; }
+.s-title { font-size: 14px; color: var(--white); font-weight: 500; margin-bottom: 8px; }
+.s-date { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+.s-date.urgent { color: #E74C3C; font-weight: 500; }
+
+/* ===== FEE TABLE ===== */
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.fee-table th {
+  background: rgba(255,255,255,0.06);
+  padding: 14px 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+  font-weight: 400;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.fee-table td {
+  padding: 16px 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.fee-table tr:last-child td { border-bottom: none; }
+.fee-table .total-row td {
+  background: rgba(184,147,90,0.12);
+  color: var(--gold-l);
+  font-size: 15px;
+  font-weight: 500;
+  border-top: 1px solid rgba(184,147,90,0.3);
+}
+.fee-table .zero { color: var(--green); font-weight: 500; font-size: 15px; }
+
+/* ===== TIMELINE ===== */
+.timeline {
+  display: grid;
+  grid-template-columns: 80px repeat(12, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 11px;
+}
+.tl-cell {
+  padding: 10px 8px;
+  background: #1a1814;
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+}
+.tl-month { color: rgba(255,255,255,0.5); font-size: 10px; }
+.tl-label { color: rgba(255,255,255,0.5); font-size: 11px; display: flex; align-items: center; padding: 10px 12px; }
+.tl-bar   { background: var(--gold); opacity: 0.7; }
+.tl-bar-light { background: rgba(184,147,90,0.3); }
+.tl-bar.phase2 { background: #5D8A6B; opacity: 0.7; }
+.tl-bar.key { background: #C0392B; opacity: 0.8; }
+.tl-empty { background: #1a1814; }
+
+/* ===== ACTION ===== */
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.action-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 160px;
+  align-items: center;
+  background: #1a1814;
+  padding: 20px 24px;
+  gap: 24px;
+}
+.action-who {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px 8px;
+  border: 1px solid rgba(184,147,90,0.3);
+}
+.action-who.brain { color: #5D8A6B; border-color: rgba(93,138,107,0.4); }
+.action-text h4 { font-size: 14px; color: var(--white); font-weight: 400; margin-bottom: 4px; }
+.action-text p  { font-size: 12px; color: rgba(255,255,255,0.35); }
+.action-date {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+}
+.action-date.urgent { color: #E74C3C; font-weight: 500; }
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight-box {
+  border: 1px solid var(--gold);
+  padding: 24px 28px;
+  background: rgba(184,147,90,0.06);
+  margin-top: 24px;
+}
+.highlight-box p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; }
+.highlight-box .hl-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* ===== LIST ===== */
+.dot-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.dot-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.dot-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+.slide-dark .dot-list li { color: rgba(255,255,255,0.75); }
+.slide-light .dot-list li { color: var(--text); }
+
+/* ===== STAT BOXES ===== */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 32px;
+}
+.stat-box {
+  background: #1a1814;
+  padding: 28px 20px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--gold-l);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-num small { font-size: 14px; font-family: 'Noto Sans JP', sans-serif; font-weight: 300; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+
+/* ===== FINAL SLIDE ===== */
+.slide-final {
+  background: var(--dark);
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+.final-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 48px;
+}
+.final-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.final-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.9;
+  margin-bottom: 56px;
+}
+.final-contact {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 32px;
+  min-width: 320px;
+}
+.final-contact a { color: rgba(255,255,255,0.5); }
+
+/* ===== NAV ===== */
+nav.slide-nav {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+nav.slide-nav a {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: background .2s, transform .2s;
+}
+nav.slide-nav a:hover { background: var(--gold); transform: scale(1.4); }
+</style>
+</head>
+<body>
+
+<nav class="slide-nav">
+  <a href="#cover" title="表紙"></a>
+  <a href="#agenda" title="アジェンダ"></a>
+  <a href="#s1" title="ブランディング戦略"></a>
+  <a href="#s2" title="Web戦略"></a>
+  <a href="#s3" title="3プラン"></a>
+  <a href="#s4" title="補助金スキーム"></a>
+  <a href="#s5" title="タイムライン"></a>
+  <a href="#s6" title="次のアクション"></a>
+</nav>
+
+
+<!-- ===== 表紙 ===== -->
+<div class="slide slide-cover" id="cover">
+  <div class="cover-inner">
+    <div class="cover-left">
+      <div>
+        <p class="cover-tag">Business Proposal — 2026.05.07</p>
+        <h1 class="cover-title">
+          旅館・飲食業<br>
+          コンサルティング<br>
+          ブランディング戦略提案
+        </h1>
+        <p class="cover-sub">
+          小野順平 氏 / 株式会社TOJISM<br>
+          Web戦略・集客設計・補助金活用を含む<br>
+          包括的なブランディング支援のご提案
+        </p>
+      </div>
+      <div class="cover-meta">
+        <span>提案者：合同会社Brain</span>
+        <span>2026年5月7日</span>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="cover-right-inner">
+        <p style="font-size:11px; letter-spacing:0.15em; margin-bottom:16px; opacity:0.5; text-transform:uppercase;">本日のゴール</p>
+        <p>
+          コンサルティングブランドの<br>方向性に合意し、<br>
+          <strong>補助金申請（5/22締切）</strong>に<br>
+          向けて動き出す。
+        </p>
+        <div style="margin-top:24px; padding-top:24px; border-top:1px solid rgba(28,26,22,0.2);">
+          <p style="font-size:11px; opacity:0.5;">所要時間：約90分</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">00</div>
+</div>
+
+
+<!-- ===== アジェンダ ===== -->
+<div class="slide slide-light" id="agenda" style="padding: 80px 120px;">
+  <span class="sec-label">Agenda</span>
+  <h2 class="slide-heading">本日のアジェンダ</h2>
+  <p class="slide-sub">全5テーマ、約90分を予定しています。</p>
+
+  <div class="agenda-list">
+    <div class="agenda-item">
+      <div class="agenda-num">01</div>
+      <div>
+        <div class="agenda-text">ブランディング戦略</div>
+        <div class="agenda-sub">ポジショニング・ターゲット・差別化軸の確認</div>
+      </div>
+      <div class="agenda-tag">15 min</div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">02</div>
+      <div>
+        <div class="agenda-text">Web戦略・集客ファネル設計</div>
+        <div class="agenda-sub">LP活用方法・公式LINE・SNS・マーケティング計画</div>
+      </div>
+      <div class="agenda-tag">20 min</div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">03</div>
+      <div>
+        <div class="agenda-text">サポートプランのご提案（松・竹・梅）</div>
+        <div class="agenda-sub">3パターンの支援内容・期間・費用の比較</div>
+      </div>
+      <div class="agenda-tag">20 min</div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">04</div>
+      <div>
+        <div class="agenda-text">補助金活用スキーム</div>
+        <div class="agenda-sub">観光DX補助金（上限800万円）フル活用で実質負担ほぼゼロへ</div>
+      </div>
+      <div class="agenda-tag hot">要確認 / 15 min</div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">05</div>
+      <div>
+        <div class="agenda-text">次のアクションと意思決定</div>
+        <div class="agenda-sub">補助金申込（5/22〆）に向けた今週のタスク確認</div>
+      </div>
+      <div class="agenda-tag">20 min</div>
+    </div>
+  </div>
+  <div class="slide-num">01</div>
+</div>
+
+
+<!-- ===== SECTION 01 ===== -->
+<div class="slide slide-section-title" id="s1">
+  <span class="section-big-num">01</span>
+  <span class="section-title-en">Branding Strategy</span>
+  <h2 class="section-title-text">ブランディング戦略</h2>
+  <div class="slide-num">02</div>
+</div>
+
+<!-- ポジショニング -->
+<div class="slide slide-light" style="padding: 80px 120px;">
+  <span class="sec-label">01 — Positioning</span>
+  <h2 class="slide-heading" style="margin-bottom:40px;">ポジショニング</h2>
+
+  <div class="pos-grid">
+    <div class="pos-cell">
+      <span class="cell-label">一般的なコンサルタント</span>
+      <h4>業種横断型・理論ベース</h4>
+      <p>多業種対応。フレームワーク中心。<br>現場経験は薄い。</p>
+    </div>
+    <div class="pos-cell target">
+      <span class="target-badge">小野氏のポジション</span>
+      <span class="cell-label">小野順平氏</span>
+      <h4 style="color:#fff;">現場を知る専門家</h4>
+      <p>事業継承経験者。旅館・飲食の当事者。<br>AI/DXも活用できる数少ない人材。</p>
+    </div>
+    <div class="pos-cell">
+      <span class="cell-label">旅館系コンサルタント</span>
+      <h4>宿泊専門・経験者系</h4>
+      <p>旅館に特化しているが飲食の知見は薄い。<br>DX活用は限定的。</p>
+    </div>
+    <div class="pos-cell">
+      <span class="cell-label">DX・IT系コンサルタント</span>
+      <h4>技術特化・現場知識薄</h4>
+      <p>デジタル化は得意だが経営・現場の<br>リアルが欠ける。</p>
+    </div>
+  </div>
+
+  <div class="two-col" style="gap:24px;">
+    <div class="card">
+      <h4>ターゲット</h4>
+      <ul class="dot-list" style="margin-top:8px;">
+        <li style="font-size:13px; color:var(--mid);">九州圏を中心とした旅館・飲食店オーナー</li>
+        <li style="font-size:13px; color:var(--mid);">中規模施設（客室10〜50室程度）</li>
+        <li style="font-size:13px; color:var(--mid);">後継者問題・集客改善・業務効率化に課題感のある方</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>差別化の3軸</h4>
+      <ul class="dot-list" style="margin-top:8px;">
+        <li style="font-size:13px; color:var(--mid);">事業継承の当事者経験（旅館2施設）</li>
+        <li style="font-size:13px; color:var(--mid);">旅館×飲食 両業態への対応力</li>
+        <li style="font-size:13px; color:var(--mid);">AI/ICTテクノロジーの実装支援</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">03</div>
+</div>
+
+
+<!-- ===== SECTION 02 ===== -->
+<div class="slide slide-section-title" id="s2">
+  <span class="section-big-num">02</span>
+  <span class="section-title-en">Web Strategy</span>
+  <h2 class="section-title-text">Web戦略・<br>集客ファネル設計</h2>
+  <div class="slide-num">04</div>
+</div>
+
+<!-- 集客ファネル -->
+<div class="slide slide-dark" style="padding: 80px 120px;">
+  <span class="sec-label">02 — Funnel</span>
+  <h2 class="slide-heading" style="margin-bottom:40px;">集客ファネル設計</h2>
+
+  <div class="two-col-60">
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="funnel-icon">🔍</div>
+        <div class="funnel-text">
+          <h4>認知</h4>
+          <p>Google検索 / Instagram / セミナー登壇 / 紹介</p>
+        </div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="funnel-step highlight">
+        <div class="funnel-icon" style="color:#fff; font-size:14px; font-weight:600;">LP</div>
+        <div class="funnel-text">
+          <h4>LP（ランディングページ）</h4>
+          <p>信頼構築・サービス説明・相談CTA</p>
+        </div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="funnel-step highlight">
+        <div class="funnel-icon" style="color:#fff; font-size:18px;">📱</div>
+        <div class="funnel-text">
+          <h4>公式LINE 登録</h4>
+          <p>無料相談予約・自動フォロー・情報発信</p>
+        </div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="funnel-step">
+        <div class="funnel-icon">💬</div>
+        <div class="funnel-text">
+          <h4>無料相談（60分）</h4>
+          <p>課題ヒアリング → プラン提案</p>
+        </div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="funnel-step">
+        <div class="funnel-icon">✅</div>
+        <div class="funnel-text">
+          <h4>契約・支援スタート</h4>
+          <p>スポット or 継続プラン</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div class="card-dark">
+        <h4>LINEを中間に置く理由</h4>
+        <p>旅館・飲食オーナーはメール開封率が低い。LINEなら既読率が高く、無料コンテンツ配信で継続接点を持てる。</p>
+      </div>
+      <div class="card-dark">
+        <h4>初期集客の優先順位</h4>
+        <ol style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+          <li style="font-size:13px; color:rgba(255,255,255,0.6); display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-weight:500;">1位</span> 紹介・人脈（最速）</li>
+          <li style="font-size:13px; color:rgba(255,255,255,0.6); display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-weight:500;">2位</span> セミナー登壇（商工会等）</li>
+          <li style="font-size:13px; color:rgba(255,255,255,0.6); display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-weight:500;">3位</span> Instagram（経営Tips発信）</li>
+          <li style="font-size:13px; color:rgba(255,255,255,0.6); display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-weight:500;">4位</span> Google SEO（中長期）</li>
+        </ol>
+      </div>
+      <div class="card-dark">
+        <h4>年間目標（目安）</h4>
+        <p>LP → LINE登録 月10〜20人<br>無料相談 月2〜4件<br>成約率 30〜40%（月1件ペースが目標）</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05</div>
+</div>
+
+
+<!-- ===== SECTION 03 ===== -->
+<div class="slide slide-section-title" id="s3">
+  <span class="section-big-num">03</span>
+  <span class="section-title-en">Service Plans</span>
+  <h2 class="section-title-text">サポートプランの<br>ご提案</h2>
+  <div class="slide-num">06</div>
+</div>
+
+<!-- プラン比較 -->
+<div class="slide slide-light" style="padding: 60px 80px;">
+  <span class="sec-label">03 — Plans</span>
+  <h2 class="slide-heading" style="margin-bottom:36px;">3プラン比較</h2>
+
+  <div class="plan-compare">
+    <!-- ヘッダー行 -->
+    <div class="plan-header-cell label"></div>
+    <div class="plan-header-cell ume">
+      <div class="plan-name">梅</div>
+      <div class="plan-price" style="font-size:22px;">90万円</div>
+      <div class="plan-period">税抜 / 一括</div>
+    </div>
+    <div class="plan-header-cell take">
+      <div class="plan-name">竹</div>
+      <div class="plan-price">360万円</div>
+      <div class="plan-period">税抜 / 分割可</div>
+    </div>
+    <div class="plan-header-cell matsu">
+      <div style="font-size:10px; letter-spacing:0.12em; color:var(--gold-l); margin-bottom:8px;">★ RECOMMEND</div>
+      <div class="plan-name">松</div>
+      <div class="plan-price">750万円</div>
+      <div class="plan-period">税抜 / 補助金フル活用</div>
+    </div>
+
+    <!-- 行 -->
+    <div class="plan-row-label">支援期間</div>
+    <div class="plan-cell plan-val">2ヶ月</div>
+    <div class="plan-cell plan-val">6ヶ月</div>
+    <div class="plan-cell plan-val gold">12ヶ月</div>
+
+    <div class="plan-row-label">LP制作（本格版）</div>
+    <div class="plan-cell plan-check">✓</div>
+    <div class="plan-cell plan-check">✓</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">公式LINE構築</div>
+    <div class="plan-cell plan-val" style="font-size:12px;">基本設定</div>
+    <div class="plan-cell plan-check">✓</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">ブランディング戦略策定</div>
+    <div class="plan-cell plan-val" style="font-size:12px;">簡易版</div>
+    <div class="plan-cell plan-check">✓</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">月次マーケ支援</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-val">4ヶ月</div>
+    <div class="plan-cell plan-val gold">12ヶ月</div>
+
+    <div class="plan-row-label">SNSアカウント立ち上げ</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">広告運用支援</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">月次レポート</div>
+    <div class="plan-cell plan-dash">—</div>
+    <div class="plan-cell plan-check">✓</div>
+    <div class="plan-cell plan-check">✓</div>
+
+    <div class="plan-row-label">補助金申請額</div>
+    <div class="plan-cell plan-val">100万円</div>
+    <div class="plan-cell plan-val">400万円</div>
+    <div class="plan-cell plan-val gold">800万円（上限）</div>
+
+    <div class="plan-row-label" style="font-weight:700; color:#1C1A16;">小野氏の実質負担</div>
+    <div class="plan-cell" style="color:var(--green); font-weight:700; text-align:center; font-size:15px;">ほぼ0円</div>
+    <div class="plan-cell" style="color:var(--green); font-weight:700; text-align:center; font-size:15px;">ほぼ0円</div>
+    <div class="plan-cell" style="color:var(--green); font-weight:700; text-align:center; font-size:15px; background:#f0f8f4;">ほぼ0円</div>
+  </div>
+
+  <p style="font-size:11px; color:var(--mid); margin-top:12px;">※「ほぼ0円」は補助金フル採択の場合。消費税相当分は課税区分により別途考慮が必要。先払い後・補助金受領の形となります。</p>
+  <div class="slide-num">07</div>
+</div>
+
+<!-- 各プラン詳細 -->
+<div class="slide slide-dark" style="padding: 60px 80px;">
+  <span class="sec-label">03 — Plan Details</span>
+  <h2 class="slide-heading" style="margin-bottom:36px;">各プランの詳細内容</h2>
+
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08);">
+
+    <!-- 梅 -->
+    <div style="background:#1a1814; padding:28px 24px;">
+      <div style="font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase;">Ume — スターター</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--white); margin-bottom:4px;">梅</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--gold-l); margin-bottom:20px;">90<span style="font-size:14px; font-family:'Noto Sans JP',sans-serif; font-weight:300;">万円</span></div>
+      <ul class="dot-list">
+        <li>LP制作（本格デザイン・コーディング）</li>
+        <li>公式LINE基本構築（プロフィール・初回自動返信）</li>
+        <li>ブランディング戦略レポート（簡易版）</li>
+      </ul>
+      <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); font-size:12px; color:rgba(255,255,255,0.3);">
+        向いている方：<br>まず形を作って自走したい方
+      </div>
+    </div>
+
+    <!-- 竹 -->
+    <div style="background:#1C1A16; padding:28px 24px;">
+      <div style="font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.3); margin-bottom:12px; text-transform:uppercase;">Take — スタンダード</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--white); margin-bottom:4px;">竹</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--gold-l); margin-bottom:20px;">360<span style="font-size:14px; font-family:'Noto Sans JP',sans-serif; font-weight:300;">万円</span></div>
+      <ul class="dot-list">
+        <li>LP制作（本格版）</li>
+        <li>公式LINE構築（シナリオ・ステップ配信設計）</li>
+        <li>ブランディング戦略策定（フル版）</li>
+        <li>月次MTG + 施策立案（4ヶ月）</li>
+        <li>月次レポート</li>
+      </ul>
+      <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); font-size:12px; color:rgba(255,255,255,0.3);">
+        向いている方：<br>立ち上げ〜軌道乗せまで伴走が欲しい方
+      </div>
+    </div>
+
+    <!-- 松 -->
+    <div style="background:#141210; padding:28px 24px; border:1px solid rgba(184,147,90,0.3);">
+      <div style="font-size:10px; letter-spacing:0.15em; color:var(--gold); margin-bottom:12px; text-transform:uppercase;">Matsu — フルサポート ★</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--white); margin-bottom:4px;">松</div>
+      <div style="font-family:'Noto Serif JP',serif; font-size:28px; color:var(--gold-l); margin-bottom:20px;">750<span style="font-size:14px; font-family:'Noto Sans JP',sans-serif; font-weight:300;">万円</span></div>
+      <ul class="dot-list">
+        <li>LP制作（本格版）</li>
+        <li>公式LINE構築（フルシナリオ・CRM設計）</li>
+        <li>ブランディング戦略策定（フル版）</li>
+        <li>月次マーケ支援（12ヶ月）</li>
+        <li>SNSアカウント立ち上げ（Instagram）</li>
+        <li>広告運用支援（Google / Meta）</li>
+        <li>月次レポート + 四半期戦略見直し</li>
+      </ul>
+      <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(184,147,90,0.2); font-size:12px; color:rgba(255,255,255,0.3);">
+        向いている方：<br>補助金フル活用で年間通じてブランドを確立したい方
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">08</div>
+</div>
+
+
+<!-- ===== SECTION 04 ===== -->
+<div class="slide slide-section-title" id="s4">
+  <span class="section-big-num">04</span>
+  <span class="section-title-en">Subsidy Scheme</span>
+  <h2 class="section-title-text">補助金活用<br>スキーム</h2>
+  <div class="slide-num">09</div>
+</div>
+
+<!-- 補助金説明 -->
+<div class="slide slide-dark" style="padding: 60px 80px;">
+  <span class="sec-label">04 — Subsidy</span>
+  <h2 class="slide-heading" style="margin-bottom:32px;">観光DX補助金の概要</h2>
+
+  <div class="stat-row" style="margin-bottom:32px;">
+    <div class="stat-box">
+      <div class="stat-num">800<small>万円</small></div>
+      <div class="stat-label">補助上限額（定額）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">11,800<small>円</small></div>
+      <div class="stat-label">最高時間単価（税込）</div>
+    </div>
+    <div class="stat-box" style="border:1px solid rgba(224,67,67,0.4);">
+      <div class="stat-num" style="color:#E74C3C;">5/22</div>
+      <div class="stat-label" style="color:#E74C3C;">参加申込 締切</div>
+    </div>
+    <div class="stat-box" style="border:1px solid rgba(224,67,67,0.3);">
+      <div class="stat-num" style="color:#E74C3C;">5/29</div>
+      <div class="stat-label" style="color:#E74C3C;">計画申請 締切</div>
+    </div>
+  </div>
+
+  <div class="subsidy-flow">
+    <div class="subsidy-step">
+      <div class="s-num">STEP 01</div>
+      <div class="s-title">参加申込</div>
+      <div class="s-date urgent">5月22日（金）締切<br>★ 今週中に対応</div>
+    </div>
+    <div class="subsidy-step">
+      <div class="s-num">STEP 02</div>
+      <div class="s-title">計画申請</div>
+      <div class="s-date urgent">5月29日（金）締切</div>
+    </div>
+    <div class="subsidy-step">
+      <div class="s-num">STEP 03</div>
+      <div class="s-title">採択・交付決定</div>
+      <div class="s-date">6〜7月頃<br>決定後に発注可能</div>
+    </div>
+    <div class="subsidy-step">
+      <div class="s-num">STEP 04</div>
+      <div class="s-title">補助金入金</div>
+      <div class="s-date">2027年2〜3月頃<br>完了報告後に振込</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="gap:20px;">
+    <div class="card-dark">
+      <h4>申請スキーム（案）</h4>
+      <p>
+        申請者：株式会社TOJISM または 丸正旅館（宿泊事業者として適格）<br>
+        専門人材：合同会社Brain（観光DX支援の専門人材として登録）<br>
+        補助対象：Brain の人件費 + 交通費・宿泊費（実費）
+      </p>
+    </div>
+    <div class="card-dark">
+      <h4>キャッシュフローの注意点</h4>
+      <p>
+        補助金は<strong style="color:var(--gold-l);">後払い</strong>です。<br>
+        Brain への支払い → 後から政府より入金の流れとなります。<br>
+        一時的な立替が必要な場合は<br>日本政策金融公庫のつなぎ融資も活用可能です。
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hl-label">Point</span>
+    <p>「観光DX」の文脈でLP・LINE・Web戦略を設計することが採択のポイントです。<br>
+    「予約システム連携・顧客データ活用・デジタルマーケティング導入」として申請書を記載します。</p>
+  </div>
+  <div class="slide-num">10</div>
+</div>
+
+<!-- 費用シミュレーション（松案） -->
+<div class="slide slide-dark" style="padding: 60px 80px;">
+  <span class="sec-label">04 — Fee Simulation（松案）</span>
+  <h2 class="slide-heading" style="margin-bottom:36px;">費用シミュレーション（松案・フルサポート）</h2>
+
+  <table class="fee-table">
+    <thead>
+      <tr>
+        <th>フェーズ</th>
+        <th>内容</th>
+        <th>時間</th>
+        <th>時間単価（税込）</th>
+        <th>金額（税込）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Phase 1<br><span style="font-size:11px; opacity:0.5;">1〜2ヶ月</span></td>
+        <td>LP制作・LINE構築・ブランディング戦略策定・SNS立ち上げ</td>
+        <td>150時間</td>
+        <td>11,800円</td>
+        <td>177万円</td>
+      </tr>
+      <tr>
+        <td>Phase 2<br><span style="font-size:11px; opacity:0.5;">3〜12ヶ月</span></td>
+        <td>月次マーケ支援・広告運用・コンテンツ・レポート（約52時間/月 × 10ヶ月）</td>
+        <td>520時間</td>
+        <td>11,800円</td>
+        <td>614万円</td>
+      </tr>
+      <tr>
+        <td>交通費・宿泊費</td>
+        <td>現地訪問に伴う実費（公共交通機関利用）</td>
+        <td colspan="2">実費計上</td>
+        <td>〜9万円</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="4">合計（税込）</td>
+        <td>約800万円</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="color:rgba(255,255,255,0.4); font-size:12px;">補助金カバー額（定額補助）</td>
+        <td style="color:var(--green); font-size:15px; font-weight:500;">▲ 約800万円</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="font-size:15px; color:var(--gold-l); font-weight:500;">小野氏の最終実質負担</td>
+        <td class="zero">ほぼ 0円</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:11px; color:rgba(255,255,255,0.25); margin-top:12px;">※課税事業者の場合、消費税相当分（約73万円）は一時負担が発生しますが、確定申告時に仕入税額控除として回収できます。</p>
+  <div class="slide-num">11</div>
+</div>
+
+
+<!-- ===== SECTION 05 ===== -->
+<div class="slide slide-section-title" id="s5">
+  <span class="section-big-num">05</span>
+  <span class="section-title-en">Timeline</span>
+  <h2 class="section-title-text">タイムライン<br>（松案 12ヶ月）</h2>
+  <div class="slide-num">12</div>
+</div>
+
+<!-- タイムライン詳細 -->
+<div class="slide slide-dark" style="padding: 60px 80px;">
+  <span class="sec-label">05 — Roadmap</span>
+  <h2 class="slide-heading" style="margin-bottom:36px;">ロードマップ（松案・12ヶ月）</h2>
+
+  <div style="overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; font-size:12px; min-width:900px;">
+      <thead>
+        <tr>
+          <th style="width:140px; padding:10px 12px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:left; border:1px solid rgba(255,255,255,0.06); font-weight:400;">タスク</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">5月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">6月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">7月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">8月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">9月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">10月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">11月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">12月</th>
+          <th style="padding:10px 8px; background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.35); text-align:center; border:1px solid rgba(255,255,255,0.06); font-weight:400;">1月</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">補助金申請</td>
+          <td colspan="1" style="background:rgba(224,67,67,0.5); border:1px solid rgba(255,255,255,0.06); text-align:center; color:#fff; font-weight:500;">申込/申請</td>
+          <td colspan="1" style="background:rgba(224,67,67,0.25); border:1px solid rgba(255,255,255,0.06); text-align:center; color:rgba(255,255,255,0.5);">採択待ち</td>
+          <td colspan="1" style="background:rgba(184,147,90,0.3); border:1px solid rgba(255,255,255,0.06); text-align:center; color:var(--gold-l);">交付決定</td>
+          <td colspan="6" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">LP制作</td>
+          <td colspan="1" style="background:rgba(184,147,90,0.5); border:1px solid rgba(255,255,255,0.06); text-align:center; color:var(--gold-l);">制作中</td>
+          <td colspan="2" style="background:rgba(184,147,90,0.35); border:1px solid rgba(255,255,255,0.06); text-align:center; color:var(--gold-l);">仕上げ・公開</td>
+          <td colspan="6" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">公式LINE構築</td>
+          <td colspan="1" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+          <td colspan="2" style="background:rgba(184,147,90,0.35); border:1px solid rgba(255,255,255,0.06); text-align:center; color:var(--gold-l);">設計・構築</td>
+          <td colspan="6" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">SNS立ち上げ</td>
+          <td colspan="2" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+          <td colspan="2" style="background:rgba(93,138,107,0.4); border:1px solid rgba(255,255,255,0.06); text-align:center; color:rgba(150,220,170,0.8);">アカウント立ち上げ</td>
+          <td colspan="5" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">月次マーケ支援</td>
+          <td colspan="3" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+          <td colspan="6" style="background:rgba(93,138,107,0.3); border:1px solid rgba(255,255,255,0.06); text-align:center; color:rgba(150,220,170,0.8);">月次MTG・施策実行・レポート</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 12px; background:#1a1814; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.06);">完了報告</td>
+          <td colspan="8" style="background:#1a1814; border:1px solid rgba(255,255,255,0.06);"></td>
+          <td colspan="1" style="background:rgba(224,67,67,0.4); border:1px solid rgba(255,255,255,0.06); text-align:center; color:#fff; font-weight:500;">1/8〆</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:flex; gap:24px; margin-top:24px; flex-wrap:wrap;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:16px; height:12px; background:rgba(184,147,90,0.5); flex-shrink:0;"></div>
+      <span style="font-size:11px; color:rgba(255,255,255,0.35);">LP・LINE・ブランディング制作</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:16px; height:12px; background:rgba(93,138,107,0.4); flex-shrink:0;"></div>
+      <span style="font-size:11px; color:rgba(255,255,255,0.35);">月次マーケ支援・SNS</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:16px; height:12px; background:rgba(224,67,67,0.5); flex-shrink:0;"></div>
+      <span style="font-size:11px; color:rgba(255,255,255,0.35);">締切・重要マイルストーン</span>
+    </div>
+  </div>
+  <div class="slide-num">13</div>
+</div>
+
+
+<!-- ===== SECTION 06 ===== -->
+<div class="slide slide-section-title" id="s6">
+  <span class="section-big-num">06</span>
+  <span class="section-title-en">Next Actions</span>
+  <h2 class="section-title-text">次のアクション<br>と意思決定</h2>
+  <div class="slide-num">14</div>
+</div>
+
+<!-- アクションリスト -->
+<div class="slide slide-dark" style="padding: 60px 80px;">
+  <span class="sec-label">06 — Action Items</span>
+  <h2 class="slide-heading" style="margin-bottom:36px;">今週中に決めること・動くこと</h2>
+
+  <div class="action-list" style="margin-bottom:32px;">
+    <div class="action-item">
+      <div class="action-who">小野氏</div>
+      <div class="action-text">
+        <h4>プランの選択（松・竹・梅）</h4>
+        <p>補助金申請額・支援期間・内容の最終確認</p>
+      </div>
+      <div class="action-date urgent">本日中</div>
+    </div>
+    <div class="action-item">
+      <div class="action-who">小野氏</div>
+      <div class="action-text">
+        <h4>観光DX補助金 参加申込</h4>
+        <p>特設サイト（kanko-dx-hojo.go.jp）から申込</p>
+      </div>
+      <div class="action-date urgent">5月22日（木）〆</div>
+    </div>
+    <div class="action-item">
+      <div class="action-who brain">Brain</div>
+      <div class="action-text">
+        <h4>計画申請書の作成サポート</h4>
+        <p>様式1〜4の作成・DX文脈での事業計画書起草</p>
+      </div>
+      <div class="action-date urgent">5月29日（木）〆</div>
+    </div>
+    <div class="action-item">
+      <div class="action-who">小野氏</div>
+      <div class="action-text">
+        <h4>Brainとの業務委託契約 締結</h4>
+        <p>補助金採択後の発注に向けた事前合意</p>
+      </div>
+      <div class="action-date">6月上旬</div>
+    </div>
+    <div class="action-item">
+      <div class="action-who brain">Brain</div>
+      <div class="action-text">
+        <h4>LP・LINE・SNS 本格制作開始</h4>
+        <p>交付決定後（6〜7月）に正式着手</p>
+      </div>
+      <div class="action-date">交付決定後</div>
+    </div>
+    <div class="action-item">
+      <div class="action-who">小野氏</div>
+      <div class="action-text">
+        <h4>MISSIONテキスト・実績・経歴の提供</h4>
+        <p>LP制作に必要なコンテンツ（現在仮テキスト）</p>
+      </div>
+      <div class="action-date">5月中</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hl-label">本日の最重要確認事項</span>
+    <p>
+      補助金の参加申込締切は <strong style="color:#E74C3C;">5月22日（あと15日）</strong> です。<br>
+      今日プランを選択し、今週中に申込を完了させることが<br>「実質負担ゼロ」を実現する唯一の条件です。
+    </p>
+  </div>
+  <div class="slide-num">15</div>
+</div>
+
+
+<!-- ===== FINAL ===== -->
+<div class="slide slide-final">
+  <div class="final-logo">合同会社Brain</div>
+  <h2 class="final-title">ご清聴ありがとうございました。</h2>
+  <p class="final-sub">
+    不明点・ご要望はお気軽にお申し付けください。<br>
+    本日の合意内容をもとに、来週より申請準備を進めます。
+  </p>
+  <div class="final-contact">
+    <span>合同会社Brain</span>
+    <span>担当者：鵜木 芳文</span>
+    <span><a href="mailto:yoshifumi.unoki.business@gmail.com">yoshifumi.unoki.business@gmail.com</a></span>
+  </div>
+  <div class="slide-num" style="color:rgba(255,255,255,0.15);">END</div>
+</div>
+
+</body>
+</html>

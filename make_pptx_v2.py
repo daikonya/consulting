@@ -700,13 +700,272 @@ def s11_ai(prs):
 #  MAIN
 # ════════════════════════════════════════════════════════
 
+def s_vision(prs):
+    """1年後のビジョン (Before/After)"""
+    s = blank(prs)
+    bg(s, DARK)
+    accent_bar(s)
+    sec_label(s, "VISION -- 1年後の姿")
+    heading(s, "Brain支援後、12ヶ月で何が変わるか")
+    gold_line(s, Inches(0.35), Inches(1.38))
+
+    items = [
+        ("クライアント獲得",  "口コミ・紹介のみ",         "LP+LINE+SNSで継続的に獲得"),
+        ("月間新規相談",      "0〜1件（不定期）",          "月1〜2件のペースに安定"),
+        ("ブランド認知",      "熊本・阿蘇圏のみ",          "全国（Webで地域制約なし）"),
+        ("コンテンツ",        "なし",                      "動画96本+ブログ自動更新"),
+        ("専門家としての権威", "口頭説明のみ",              "実績・事例・メディア掲載"),
+        ("集客にかける時間",  "毎回ゼロから手動",          "仕組みが自動で動き続ける"),
+    ]
+
+    # ヘッダー
+    bw = Inches(5.9)
+    box(s, Inches(0.25), Inches(1.58), bw, Inches(0.5),
+        fill=RGBColor(0x33,0x30,0x28))
+    tb(s, "現在（Before）", Inches(0.25), Inches(1.66), bw, Inches(0.35),
+       fn=JP, sz=11, fc=MGRAY, align=PP_ALIGN.CENTER)
+
+    box(s, Inches(6.7), Inches(1.58), bw, Inches(0.5),
+        fill=RGBColor(0x18,0x2E,0x1A))
+    tb(s, "12ヶ月後（After）", Inches(6.7), Inches(1.66), bw, Inches(0.35),
+       fn=JP, sz=11, fc=TEAL, align=PP_ALIGN.CENTER)
+
+    rh = Inches(0.82)
+    for i, (label_t, before, after) in enumerate(items):
+        ry = Inches(2.18) + i * rh
+
+        # label
+        box(s, Inches(0.25), ry, Inches(1.55), rh-Inches(0.06), fill=DARK3)
+        tb(s, label_t, Inches(0.32), ry+Inches(0.22), Inches(1.4), rh-Inches(0.3),
+           fn=JP, sz=10.5, fc=MGRAY, wrap=True)
+
+        # before
+        box(s, Inches(1.85), ry, Inches(4.65), rh-Inches(0.06),
+            fill=RGBColor(0x26,0x23,0x1E))
+        tb(s, before, Inches(2.0), ry+Inches(0.22), Inches(4.3), rh-Inches(0.3),
+           fn=JP, sz=13, fc=RGBColor(0x77,0x70,0x65))
+
+        # arrow
+        tb(s, "->", Inches(6.55), ry+Inches(0.22), Inches(0.22), rh-Inches(0.3),
+           fn=JP, sz=14, fc=GOLD, align=PP_ALIGN.CENTER)
+
+        # after
+        box(s, Inches(6.82), ry, Inches(6.16), rh-Inches(0.06),
+            fill=RGBColor(0x14,0x26,0x16))
+        tb(s, after, Inches(6.97), ry+Inches(0.22), Inches(5.8), rh-Inches(0.3),
+           fn=JP, sz=13, fc=RGBColor(0x88,0xDD,0xAA))
+
+    box(s, Inches(0.25), Inches(7.08), Inches(12.83), Inches(0.3),
+        fill=RGBColor(0x26,0x23,0x1E))
+    tb(s, "これらは「仕組み」として残るため、支援終了後も自走し続けます。",
+       Inches(0.45), Inches(7.13), Inches(12.4), Inches(0.24),
+       fn=JP, sz=10.5, fc=GOLD_L)
+
+
+def s_roi(prs):
+    """収益シミュレーション"""
+    s = blank(prs)
+    bg(s, DARK)
+    accent_bar(s)
+    sec_label(s, "ROI -- 収益シミュレーション")
+    heading(s, "小野氏のコンサル収益シミュレーション")
+    gold_line(s, Inches(0.35), Inches(1.38))
+
+    tb(s, "Brain支援後の想定成約数をもとに、小野氏のコンサル事業の年間売上を試算します。",
+       Inches(0.35), Inches(1.52), Inches(12.6), Inches(0.35),
+       fn=JP, sz=12, fc=MGRAY)
+
+    # 料金表（小野氏のプラン）
+    box(s, Inches(0.25), Inches(2.0), Inches(3.8), Inches(4.6),
+        fill=DARK3)
+    tb(s, "小野氏のサービス料金", Inches(0.45), Inches(2.12), Inches(3.4), Inches(0.32),
+       fn=JP, sz=10, fc=GOLD)
+    plans_p = [
+        ("スポットコンサル",  "5万円",   "/ 件"),
+        ("エッセンシャル",    "21万円",  "/ 3ヶ月"),
+        ("スタンダード",      "45万円",  "/ 3ヶ月"),
+        ("エグゼクティブ",    "90万円",  "/ 3ヶ月"),
+    ]
+    for j, (pname, price, period) in enumerate(plans_p):
+        py = Inches(2.55) + j * Inches(0.95)
+        box(s, Inches(0.45), py, Inches(3.4), Inches(0.82), fill=DARK2)
+        tb(s, pname, Inches(0.6), py+Inches(0.08), Inches(3.1), Inches(0.3),
+           fn=JP, sz=10, fc=MGRAY)
+        tb(s, price, Inches(0.6), py+Inches(0.4), Inches(2.2), Inches(0.36),
+           fn=JPS, sz=18, fc=GOLD_L)
+        tb(s, period, Inches(2.85), py+Inches(0.46), Inches(0.95), Inches(0.28),
+           fn=JP, sz=9, fc=MGRAY)
+
+    # 保守シナリオ
+    cx1 = Inches(4.35)
+    cw  = Inches(4.0)
+    box(s, cx1, Inches(2.0), cw, Inches(0.5), fill=RGBColor(0x26,0x23,0x1E))
+    tb(s, "保守シナリオ（年間6件）", cx1+Inches(0.15), Inches(2.1),
+       cw-Inches(0.3), Inches(0.32), fn=JP, sz=11, fc=MGRAY, bold=True)
+
+    cons_rows = [
+        ("スポット",     "2件", "×  5万円", "10万円"),
+        ("エッセンシャル","2件", "× 21万円", "42万円"),
+        ("スタンダード", "1件", "× 45万円", "45万円"),
+        ("エグゼクティブ","1件", "× 90万円", "90万円"),
+    ]
+    for j, (pn, cnt, mul, amt) in enumerate(cons_rows):
+        ry = Inches(2.6) + j * Inches(0.66)
+        box(s, cx1, ry, cw, Inches(0.58), fill=DARK3)
+        tb(s, pn,  cx1+Inches(0.12), ry+Inches(0.12), Inches(1.4), Inches(0.35),
+           fn=JP, sz=10.5, fc=RGBColor(0xAA,0xA2,0x95))
+        tb(s, cnt, cx1+Inches(1.6),  ry+Inches(0.12), Inches(0.6), Inches(0.35),
+           fn=JP, sz=11, fc=WHITE)
+        tb(s, mul, cx1+Inches(2.1),  ry+Inches(0.12), Inches(1.1), Inches(0.35),
+           fn=JP, sz=10, fc=MGRAY)
+        tb(s, amt, cx1+Inches(3.1),  ry+Inches(0.12), Inches(0.85), Inches(0.35),
+           fn=JP, sz=11, fc=GOLD_L, bold=True, align=PP_ALIGN.RIGHT)
+
+    box(s, cx1, Inches(5.28), cw, Inches(0.55), fill=RGBColor(0x22,0x3A,0x22))
+    tb(s, "年間売上（概算）", cx1+Inches(0.15), Inches(5.37),
+       Inches(2.5), Inches(0.32), fn=JP, sz=10, fc=TEAL)
+    tb(s, "187万円", cx1+Inches(2.6), Inches(5.33),
+       Inches(1.35), Inches(0.38), fn=JPS, sz=20, fc=GREEN, bold=False, align=PP_ALIGN.RIGHT)
+
+    # 目標シナリオ
+    cx2 = Inches(8.6)
+    box(s, cx2, Inches(2.0), cw, Inches(0.5), fill=RGBColor(0x1C,0x2E,0x1C))
+    tb(s, "目標シナリオ（年間10件）", cx2+Inches(0.15), Inches(2.1),
+       cw-Inches(0.3), Inches(0.32), fn=JP, sz=11, fc=TEAL, bold=True)
+
+    tgt_rows = [
+        ("スポット",     "2件",  "×  5万円",  "10万円"),
+        ("エッセンシャル","3件",  "× 21万円",  "63万円"),
+        ("スタンダード", "3件",  "× 45万円", "135万円"),
+        ("エグゼクティブ","2件",  "× 90万円", "180万円"),
+    ]
+    for j, (pn, cnt, mul, amt) in enumerate(tgt_rows):
+        ry = Inches(2.6) + j * Inches(0.66)
+        box(s, cx2, ry, cw, Inches(0.58), fill=RGBColor(0x18,0x26,0x18))
+        tb(s, pn,  cx2+Inches(0.12), ry+Inches(0.12), Inches(1.4), Inches(0.35),
+           fn=JP, sz=10.5, fc=RGBColor(0xAA,0xA2,0x95))
+        tb(s, cnt, cx2+Inches(1.6),  ry+Inches(0.12), Inches(0.6), Inches(0.35),
+           fn=JP, sz=11, fc=WHITE)
+        tb(s, mul, cx2+Inches(2.1),  ry+Inches(0.12), Inches(1.1), Inches(0.35),
+           fn=JP, sz=10, fc=MGRAY)
+        tb(s, amt, cx2+Inches(3.1),  ry+Inches(0.12), Inches(0.85), Inches(0.35),
+           fn=JP, sz=11, fc=RGBColor(0x88,0xDD,0xAA), bold=True, align=PP_ALIGN.RIGHT)
+
+    box(s, cx2, Inches(5.28), cw, Inches(0.55), fill=RGBColor(0x1A,0x44,0x1A))
+    tb(s, "年間売上（概算）", cx2+Inches(0.15), Inches(5.37),
+       Inches(2.5), Inches(0.32), fn=JP, sz=10, fc=TEAL)
+    tb(s, "388万円", cx2+Inches(2.55), Inches(5.33),
+       Inches(1.4), Inches(0.38), fn=JPS, sz=20, fc=GREEN, bold=False, align=PP_ALIGN.RIGHT)
+
+    # ROI比較バー
+    box(s, Inches(0.25), Inches(6.05), Inches(12.83), Inches(1.25),
+        fill=RGBColor(0x22,0x33,0x22))
+    tb(s, "投資対効果サマリ", Inches(0.45), Inches(6.15),
+       Inches(3.5), Inches(0.3), fn=JP, sz=10, fc=TEAL)
+    tb(s, "Brain支援の実質自己負担：ほぼ0円（補助金活用）",
+       Inches(0.45), Inches(6.48), Inches(5.5), Inches(0.3),
+       fn=JP, sz=11.5, fc=WHITE)
+    tb(s, "保守 +187万円  /  目標 +388万円  の売上増が見込める",
+       Inches(6.2), Inches(6.48), Inches(6.7), Inches(0.3),
+       fn=JP, sz=11.5, fc=GREEN, bold=True)
+
+
+def s_deliverables(prs):
+    """成果物一覧"""
+    s = blank(prs)
+    bg(s, DARK)
+    accent_bar(s)
+    sec_label(s, "DELIVERABLES -- 成果物一覧")
+    heading(s, "このプランで手元に残るもの（プレミアム）")
+    gold_line(s, Inches(0.35), Inches(1.38))
+
+    tb(s, "Brainとの契約が終了した後も、これらの「仕組み」と「資産」が小野氏のビジネスを支え続けます。",
+       Inches(0.35), Inches(1.52), Inches(12.6), Inches(0.35),
+       fn=JP, sz=12, fc=MGRAY)
+
+    categories = [
+        ("Web / LP", GOLD, [
+            "LP本番公開（和モダン高級感デザイン）",
+            "ブログ機能（AI自動投稿・記事一覧・詳細ページ）",
+            "お問い合わせフォーム（無料相談導線）",
+            "Google Analytics 4 / Search Console 計測環境",
+        ]),
+        ("公式LINE", LINE_GREEN, [
+            "公式アカウント一式（リッチメニュー含む）",
+            "ステップ配信シナリオ 5〜8通",
+            "無料相談予約フロー",
+            "LINE広告アカウント設定済み環境",
+            "▶ LINE運用・広告マニュアル",
+        ]),
+        ("ブランディング", RGBColor(0xD4,0xAF,0x7A), [
+            "ブランドコンセプトシート",
+            "プロフィール文（LP・SNS・名刺用）",
+            "コンテンツカレンダー（3ヶ月分）",
+            "ケーススタディフォーマット（実績掲載用）",
+        ]),
+        ("マーケ分析", BLUE, [
+            "月次分析レポート × 12本",
+            "KPIダッシュボード（GA4連携）",
+            "SEOキーワード改善提案レポート",
+            "Web広告運用レポート × 12本",
+        ]),
+        ("SNS / 動画", RGBColor(0xE1,0x30,0x6C), [
+            "Shorts動画 96本（月8本 × 12ヶ月）",
+            "Instagram / YouTube Shorts アカウント設定",
+            "▶ 動画制作・SNS運用マニュアル",
+            "撮影ガイドライン・コンテンツテンプレート",
+        ]),
+        ("AI / 自動化", RGBColor(0x8B,0x5C,0xF6), [
+            "自動ブログ生成システム（GitHub Actions）",
+            "Claude API 連携設定済み",
+            "記事生成プロンプトテンプレート",
+            "▶ AI自動ブログ運用マニュアル",
+        ]),
+    ]
+
+    col_positions = [
+        (Inches(0.25),  Inches(1.95)),
+        (Inches(4.44),  Inches(1.95)),
+        (Inches(8.63),  Inches(1.95)),
+        (Inches(0.25),  Inches(4.65)),
+        (Inches(4.44),  Inches(4.65)),
+        (Inches(8.63),  Inches(4.65)),
+    ]
+    cw = Inches(4.0); ch = Inches(2.55)
+
+    for (cat, color, items_list), (cx, cy) in zip(categories, col_positions):
+        box(s, cx, cy, cw, ch, fill=DARK3)
+        box(s, cx, cy, cw, Inches(0.4), fill=color)
+        tb(s, cat, cx+Inches(0.12), cy+Inches(0.06), cw-Inches(0.2), Inches(0.3),
+           fn=JP, sz=11, fc=DARK, bold=True)
+        for k, item in enumerate(items_list):
+            iy = cy + Inches(0.5) + k * Inches(0.4)
+            is_manual = item.startswith("▶")
+            ic = GOLD_L if is_manual else RGBColor(0xCC,0xC5,0xB8)
+            fw = 500 if is_manual else 300
+            box(s, cx+Inches(0.12), iy+Inches(0.12),
+                Inches(0.06), Inches(0.06), fill=color)
+            tb(s, item, cx+Inches(0.26), iy+Inches(0.04),
+               cw-Inches(0.36), Inches(0.36),
+               fn=JP, sz=10.5, fc=ic)
+
+    box(s, Inches(0.25), Inches(7.3), Inches(12.83), Inches(0.12),
+        fill=GOLD)
+    tb(s, "▶ マークは「マニュアル」として引き渡す成果物。支援終了後も小野氏が自律運用できる状態を目指します。",
+       Inches(0.45), Inches(7.32), Inches(12.4), Inches(0.14),
+       fn=JP, sz=9, fc=DARK)
+
+
 def main():
     prs = new_prs()
     s01_cover(prs)
     s02_agenda(prs)
     s03_branding(prs)
+    s_vision(prs)        # NEW: 1年後のビジョン
     s04_funnel(prs)
+    s_roi(prs)           # NEW: 収益シミュレーション
     s05_plans(prs)
+    s_deliverables(prs)  # NEW: 成果物一覧
     s06_lp(prs)
     s07_line(prs)
     s08_branding(prs)
@@ -714,7 +973,7 @@ def main():
     s10_sns(prs)
     s11_ai(prs)
     prs.save(r"C:\project\daikonya\提案書_v2.pptx")
-    print("Done: v2.pptx saved (11 slides)")
+    print("Done: v2.pptx saved (14 slides)")
 
 if __name__ == "__main__":
     main()

@@ -961,6 +961,120 @@ footer {
   text-align: center;
   letter-spacing: 0.06em;
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  /* Header */
+  header { padding: 0 20px; height: 60px; }
+  header nav { display: none; }
+  .btn-header { display: none; }
+
+  /* Hero */
+  .hero-main {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    max-height: none;
+  }
+  .hero-photo-col {
+    height: 260px;
+    order: -1;
+  }
+  .hero-photo-col::before {
+    background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%);
+  }
+  .hero-text-col { padding: 36px 24px 40px; }
+  .hero-tag { margin-bottom: 20px; }
+  .hero-text-col h1 { font-size: 26px; }
+  .hero-sub { font-size: 13px; margin-bottom: 28px; }
+  .hero-btns { flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-line { width: 100%; justify-content: center; }
+  .hero-badges { flex-wrap: wrap; }
+  .badge-item {
+    width: 50%;
+    padding: 18px 12px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .badge-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+  .badge-num { font-size: 24px; }
+
+  /* Sections */
+  .section { padding: 60px 0; }
+  .section-inner { padding: 0 20px; }
+  .heading-block h2 { font-size: 20px; }
+  .heading-block { margin-bottom: 36px; }
+
+  /* Pain */
+  .pain-lead h2 { font-size: 20px; }
+  .checklist { grid-template-columns: 1fr; padding: 20px 16px; gap: 0; }
+  .check-item:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--cream-alt); }
+  .pain-cta-bar { font-size: 13px; padding: 16px 20px; }
+
+  /* Mission */
+  .mission-bg { height: 200px; object-fit: cover; }
+  .mission-overlay { position: relative; padding: 0 20px; margin-top: -60px; }
+  .mission-box {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 24px;
+    flex-direction: column-reverse;
+    display: flex;
+  }
+  .mission-photo { aspect-ratio: 4 / 3; }
+
+  /* Reason / Expertise */
+  .reason-grid,
+  .expertise-grid { grid-template-columns: 1fr; }
+
+  /* Service */
+  .plan-grid { grid-template-columns: 1fr; }
+  .spot-card { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 16px; }
+  .spot-price-col { text-align: left; }
+  .value-grid { grid-template-columns: 1fr; }
+  .value-card-wide { flex-direction: column; gap: 12px; }
+
+  /* Mid CTA */
+  .mid-cta { padding: 48px 20px; }
+  .mid-cta p { font-size: 14px; }
+  .mid-cta-btns { flex-direction: column; align-items: stretch; }
+  .btn-dark, .btn-outline-dark { text-align: center; }
+  .mid-cta-btns .btn-line { justify-content: center; }
+
+  /* Works */
+  .works-grid { grid-template-columns: 1fr; }
+
+  /* Flow */
+  .flow-steps { grid-template-columns: 1fr; }
+  .flow-step { border-left: 1px solid var(--border) !important; border-top: none; }
+  .flow-step + .flow-step { border-top: 1px solid var(--border); }
+  .flow-step:not(:last-child)::after {
+    content: '↓';
+    right: auto;
+    bottom: -15px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Final CTA */
+  .final-cta { padding: 72px 0; }
+  .final-cta h2 { font-size: 22px; }
+  .final-cta .lead { font-size: 13px; }
+  .final-cta .btn-line {
+    width: 100% !important;
+    padding: 18px 24px !important;
+    font-size: 15px !important;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Footer */
+  footer { padding: 40px 20px 24px; }
+  .footer-top { flex-direction: column; gap: 28px; padding-bottom: 28px; margin-bottom: 28px; }
+  .footer-nav { align-items: flex-start; }
+}
 </style>
 </head>
 <body>

@@ -1,0 +1,21 @@
+# 個人情報・機密資料
+CLAUDE.md
+lp_hearing_sheet.csv
+lp_hearing_sheet - lp_hearing_sheet.csv
+hojokin_kakunin_list.csv
+提案書_v2.pptx
+補助金申請チェックシート.pptx
+
+# 開発用スクリプト
+make_pptx.py
+make_pptx_v2.py
+make_slides_7_8.py
+make_slides_summary_close.py
+
+# 開発用HTML
+wireframe.html
+proposal.html
+
+# 調査・分析資料
+*.xlsx
+*.docx

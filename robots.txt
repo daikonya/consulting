@@ -1,3 +1,3 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Sitemap: https://daikonya.github.io/consulting/sitemap.xml
+Sitemap: https://tojism01.github.io/consulting/sitemap.xml

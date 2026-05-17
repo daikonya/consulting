@@ -19,3 +19,7 @@ proposal.html
 # 調査・分析資料
 *.xlsx
 *.docx
+
+# ローカル確認用
+links.html
+sns_marketing_hearing.md

@@ -237,6 +237,133 @@ header nav a:hover { color: var(--text); }
   display: flex;
   justify-content: center;
 }
+
+/* Hero Campaign Strip */
+.hero-campaign-strip {
+  background: var(--dark);
+  border-top: 1px solid rgba(184,147,90,0.4);
+  border-bottom: 1px solid rgba(184,147,90,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 18px 40px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.hero-campaign-strip:hover { background: #1f1d18; }
+.hero-campaign-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(184,147,90,0.08) 50%, transparent 100%);
+  pointer-events: none;
+}
+.hcs-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hcs-tag {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 5px 12px;
+  background: var(--gold);
+  color: #1C1A16;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hcs-tag.outline {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-weight: 400;
+}
+.hcs-tag.blink { animation: tag-blink 1.6s ease-in-out infinite; }
+.hcs-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  margin-left: 4px;
+}
+.hcs-title em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+.hcs-mid {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 240px;
+  position: relative;
+  z-index: 1;
+}
+.hcs-slot {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.hcs-slot strong {
+  font-size: 18px;
+  font-family: 'Noto Serif JP', serif;
+  color: var(--gold-light);
+  font-weight: 400;
+  margin: 0 3px;
+}
+.hcs-meter {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+}
+.hcs-meter-fill {
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  position: relative;
+}
+.hcs-meter-fill::after {
+  content: "";
+  position: absolute;
+  top: -2px; right: -1px;
+  width: 2px;
+  height: calc(100% + 4px);
+  background: var(--gold-light);
+  box-shadow: 0 0 6px var(--gold-light);
+}
+.hcs-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--gold-light);
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+.hero-campaign-strip:hover .hcs-cta { transform: translateX(4px); }
+.hcs-cta-arrow {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold-light);
+  position: relative;
+}
+.hcs-cta-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-top: 1px solid var(--gold-light);
+  border-right: 1px solid var(--gold-light);
+  transform: rotate(45deg);
+}
 .badge-item {
   padding: 28px 60px;
   text-align: center;
@@ -590,6 +717,140 @@ header nav a:hover { color: var(--text); }
   line-height: 1.8;
   padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Campaign Banner */
+.campaign-banner {
+  margin-bottom: 32px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(184,147,90,0.14), rgba(184,147,90,0.03));
+  border: 1px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.campaign-banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+.campaign-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.campaign-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 5px 14px;
+  background: var(--gold);
+  color: #1C1A16;
+  font-weight: 600;
+}
+.campaign-tag.outline {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-weight: 400;
+}
+.campaign-tag.blink {
+  animation: tag-blink 1.6s ease-in-out infinite;
+}
+@keyframes tag-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.campaign-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  color: var(--white);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.campaign-title em {
+  font-style: normal;
+  color: var(--gold-light);
+}
+.campaign-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.slot-meter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.slot-meter-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.slot-meter-label strong {
+  font-size: 22px;
+  color: var(--gold-light);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  margin: 0 4px;
+}
+.slot-meter {
+  flex: 1;
+  min-width: 180px;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.slot-meter-fill {
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  position: relative;
+}
+.slot-meter-fill::after {
+  content: "";
+  position: absolute;
+  top: -2px; right: -1px;
+  width: 2px;
+  height: calc(100% + 4px);
+  background: var(--gold-light);
+  box-shadow: 0 0 8px var(--gold-light);
+}
+.slot-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Plan Price - Discounted */
+.plan-price-old {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.32);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.plan-price-old small { font-size: 11px; font-family: 'Noto Sans JP', sans-serif; }
+.plan-kyushu-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 3px 10px;
+  background: var(--gold);
+  color: #1C1A16;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .spot-card {
@@ -1095,6 +1356,23 @@ footer {
   .badge-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
   .badge-num { font-size: 24px; }
 
+  /* Campaign Strip mobile */
+  .hero-campaign-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  .hcs-left { justify-content: flex-start; }
+  .hcs-title { font-size: 14px; margin-left: 0; width: 100%; margin-top: 4px; }
+  .hcs-mid { min-width: 0; width: 100%; }
+  .hcs-cta { justify-content: flex-end; }
+  .campaign-banner { padding: 22px 20px; }
+  .campaign-title { font-size: 17px; }
+  .campaign-desc { font-size: 12px; }
+  .slot-meter-wrap { gap: 12px; }
+  .slot-note { white-space: normal; font-size: 10px; }
+
   /* Sections */
   .section { padding: 60px 0; }
   .section-inner { padding: 0 20px; }
@@ -1228,6 +1506,20 @@ footer {
       <img src="profile.jpg" alt="小野順平 プロフィール写真">
     </div>
   </div>
+
+  <!-- 期間限定キャンペーン告知ストリップ -->
+  <a href="#service" class="hero-campaign-strip" aria-label="九州限定キャンペーンプランを見る">
+    <div class="hcs-left">
+      <span class="hcs-tag blink">期間限定</span>
+      <span class="hcs-tag outline">九州エリア限定</span>
+      <span class="hcs-title">特別キャンペーン価格 <em>実施中</em></span>
+    </div>
+    <div class="hcs-mid">
+      <span class="hcs-slot">残り <strong>5</strong> / 10 枠</span>
+      <div class="hcs-meter"><div class="hcs-meter-fill"></div></div>
+    </div>
+    <span class="hcs-cta">プランを見る<span class="hcs-cta-arrow"></span></span>
+  </a>
 
   <div class="hero-badges">
     <div class="badge-item">
@@ -1417,6 +1709,27 @@ footer {
       <p class="sub">3ヶ月単位。課題の深さと予算に合わせてお選びください。</p>
     </div>
 
+    <!-- 期間限定キャンペーンバナー -->
+    <div class="campaign-banner">
+      <div class="campaign-head">
+        <span class="campaign-tag blink">期間限定</span>
+        <span class="campaign-tag outline">九州エリア限定</span>
+        <span class="campaign-tag outline">先着10枠</span>
+      </div>
+      <div class="campaign-title">
+        九州の事業者様限定 <em>特別キャンペーン価格</em>
+      </div>
+      <p class="campaign-desc">
+        九州エリアで事業を展開されている方を対象に、スタンダード／エグゼクティブの2プランを特別価格でご提供しています。<br>
+        伴走支援の質を落とすことなくご利用いただけるよう、枠数を限定しての募集です。
+      </p>
+      <div class="slot-meter-wrap">
+        <div class="slot-meter-label">残り <strong>5</strong> / 10 枠</div>
+        <div class="slot-meter"><div class="slot-meter-fill"></div></div>
+        <div class="slot-note">※先着順・予告なく終了する場合があります</div>
+      </div>
+    </div>
+
     <div class="plan-grid">
 
       <!-- 梅 -->
@@ -1444,8 +1757,10 @@ footer {
           <div class="plan-badge">▶ おすすめ</div>
           <div class="plan-name">スタンダード</div>
           <div class="plan-sub">継続的な伴走支援</div>
+          <div class="plan-kyushu-badge">九州限定価格</div>
+          <div class="plan-price-old">15<small>万円</small></div>
           <div class="plan-price">
-            15<small>万円</small>
+            12<small>万円</small>
             <span class="period">/ 3ヶ月</span>
           </div>
         </div>
@@ -1465,8 +1780,10 @@ footer {
           <div class="plan-badge">集中改善</div>
           <div class="plan-name">エグゼクティブ</div>
           <div class="plan-sub">早期に変化を起こしたい方へ</div>
+          <div class="plan-kyushu-badge">九州限定価格</div>
+          <div class="plan-price-old">30<small>万円</small></div>
           <div class="plan-price">
-            30<small>万円</small>
+            15<small>万円</small>
             <span class="period">/ 3ヶ月</span>
           </div>
         </div>
